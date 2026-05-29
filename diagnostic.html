@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Readiness Diagnostic</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --sand: #E8E0D0;
+  --sand-dark: #D4C8B4;
+  --terracotta: #C4714A;
+  --terracotta-hover: #B5623C;
+  --terracotta-light: #D4896A;
+  --terracotta-pale: #F7EDE6;
+  --terracotta-xpale: #FDF5F1;
+  --forest: #3A5244;
+  --forest-light: #4A6A58;
+  --forest-pale: #EAF0EC;
+  --charcoal: #2A2A26;
+  --ink: #1E1E1A;
+  --mid: #6B6B62;
+  --muted: #9E9E92;
+  --light: #C4C0B4;
+  --border: #E2D8CC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+  font-weight: 400;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--forest);
+  height: 60px;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(58,82,68,0.2);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  width: 42px; height: 42px;
+  background: var(--terracotta);
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(196,113,74,0.45);
+}
+.logo-mark svg { width: 36px; height: 36px; }
+.logo-name {
+  font-family: 'Lora', serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.logo-name em { color: var(--terracotta-light); font-style: italic; font-weight: 400; }
+.logo-sub {
+  font-size: 0.62rem;
+  color: rgba(250,247,242,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-weight: 400;
+}
+.header-divider {
+  width: 1px; height: 22px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 6px;
+}
+.header-tool-name {
+  font-size: 0.7rem;
+  color: rgba(250,247,242,0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.prog-text {
+  font-size: 0.7rem;
+  color: rgba(250,247,242,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.prog-track {
+  width: 110px;
+  height: 5px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.prog-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--terracotta-light), #E8A882);
+  border-radius: 10px;
+  transition: width 0.55s cubic-bezier(0.4,0,0.2,1);
+  width: 0%;
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* ── INTRO ── */
+.intro { animation: fadeUp 0.65s ease; }
+
+.intro-presented {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.intro-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--terracotta);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.intro-logo-mark svg { width: 28px; height: 28px; }
+.intro-presented span {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.intro-presented span strong {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terracotta-pale);
+  border: 1px solid rgba(196,113,74,0.25);
+  color: #A85A35;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.intro-eyebrow::before { content: "✦"; font-size: 0.55rem; }
+
+.intro-h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.18;
+  color: #7A7068;
+  margin-bottom: 18px;
+}
+.intro-h1 em { color: var(--terracotta); font-style: italic; }
+
+.intro-lead {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #52524A;
+  font-weight: 400;
+  margin-bottom: 36px;
+  max-width: 580px;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.intro-tile {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+.tile-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.ic-terra { background: var(--terracotta-pale); }
+.ic-forest { background: var(--forest-pale); }
+.ic-sand { background: #F5F0E8; }
+.tile-copy strong { display: block; font-size: 0.83rem; font-weight: 600; color: var(--charcoal); margin-bottom: 3px; }
+.tile-copy span { font-size: 0.78rem; color: #5C5C54; line-height: 1.5; }
+
+.intro-dims {
+  background: var(--forest);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.intro-dims h3 {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.dim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.dim-chip {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 0.78rem;
+  color: rgba(250,247,242,0.95);
+  text-align: center;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--terracotta);
+  color: white;
+  border: none;
+  padding: 15px 38px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 16px rgba(196,113,74,0.3);
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  background: var(--terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 22px rgba(196,113,74,0.38);
+}
+.btn-back {
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+  padding: 13px 24px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-back:hover { border-color: var(--sand-dark); color: var(--mid); }
+
+/* ── SECTION HEADER (shown at start of each dimension) ── */
+.section-banner {
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sb-about   { background: #F5F0E8; border: 1px solid #E0D4C0; }
+.sb-strategy{ background: var(--terracotta-xpale); border: 1px solid rgba(196,113,74,0.2); }
+.sb-data    { background: #EEF4F0; border: 1px solid #C4D8CC; }
+.sb-people  { background: #FDF8EC; border: 1px solid #E8D89C; }
+.sb-tools   { background: #F0EEF8; border: 1px solid #C8C0E0; }
+.sb-process { background: #EDF4F8; border: 1px solid #B8D4E0; }
+.sb-culture { background: #F8EEEE; border: 1px solid #E0C0C0; }
+
+.sb-dot {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+.sd-about   { background: #E8DCC8; }
+.sd-strategy{ background: var(--terracotta-pale); }
+.sd-data    { background: #D4E8DC; }
+.sd-people  { background: #F0E4A0; }
+.sd-tools   { background: #D8D4F0; }
+.sd-process { background: #C4DCE8; }
+.sd-culture { background: #E8C8C8; }
+
+.sb-text {}
+.sb-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.sl-about   { color: #7A6A50; }
+.sl-strategy{ color: var(--terracotta); }
+.sl-data    { color: var(--forest); }
+.sl-people  { color: #8A7010; }
+.sl-tools   { color: #5040A0; }
+.sl-process { color: #2060A0; }
+.sl-culture { color: #A04040; }
+
+.sb-desc {
+  font-size: 0.82rem;
+  color: var(--mid);
+  line-height: 1.5;
+}
+
+/* ── QUESTION CARD ── */
+.q-wrap {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(58,82,68,0.05);
+}
+
+.q-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.q-num {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.q-dim-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.dt-about   { background: #EDE4D4; color: #7A6A50; }
+.dt-strategy{ background: var(--terracotta-pale); color: var(--terracotta); }
+.dt-data    { background: #D4E8DC; color: var(--forest); }
+.dt-people  { background: #F0E4A0; color: #7A6010; }
+.dt-tools   { background: #D8D4F0; color: #5040A0; }
+.dt-process { background: #C4DCE8; color: #2060A0; }
+.dt-culture { background: #E8C8C8; color: #A04040; }
+
+.q-text {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  line-height: 1.38;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.q-why {
+  background: var(--cream);
+  border-left: 3px solid var(--terracotta-light);
+  border-radius: 0 8px 8px 0;
+  padding: 11px 16px;
+  margin-bottom: 24px;
+}
+.q-why-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 3px;
+}
+.q-why-text {
+  font-size: 0.83rem;
+  color: var(--mid);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── OPTIONS ── */
+.options { display: flex; flex-direction: column; gap: 8px; }
+
+.opt {
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  transition: all 0.17s ease;
+  position: relative;
+}
+.opt:hover {
+  border-color: var(--terracotta-light);
+  background: var(--terracotta-xpale);
+  transform: translateX(3px);
+}
+.opt.selected {
+  border-color: var(--terracotta);
+  background: var(--terracotta-pale);
+  box-shadow: 0 0 0 3px rgba(196,113,74,0.1);
+}
+.opt.selected .opt-radio { background: var(--terracotta); border-color: var(--terracotta); }
+.opt.selected .opt-radio::after { opacity: 1; }
+.opt-radio {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  margin-top: 1px;
+  position: relative;
+  transition: all 0.17s;
+}
+.opt-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.17s;
+}
+.opt-check {
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  margin-top: 1px;
+  position: relative;
+  transition: all 0.17s;
+}
+.opt.selected .opt-check { background: var(--terracotta); border-color: var(--terracotta); }
+.opt.selected .opt-check::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 0.65rem;
+  color: white;
+  font-weight: 700;
+}
+.opt-body { flex: 1; }
+.opt-title { font-size: 0.88rem; font-weight: 600; color: var(--charcoal); line-height: 1.35; margin-bottom: 2px; }
+.opt-desc  { font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+
+/* multi hint */
+.multi-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.multi-hint::before { content: "☐"; font-style: normal; color: var(--terracotta-light); }
+
+/* ── TEXT / CONTACT ── */
+textarea {
+  width: 100%;
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 15px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  resize: vertical;
+  min-height: 110px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-weight: 300;
+}
+textarea:focus { border-color: var(--terracotta-light); box-shadow: 0 0 0 3px rgba(196,113,74,0.1); }
+textarea::placeholder { color: var(--light); }
+
+.field-hint {
+  font-size: 0.68rem;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 6px;
+}
+.email-error {
+  display: none;
+  background: #FDF0EE;
+  border: 1px solid rgba(196,113,74,0.35);
+  border-radius: 9px;
+  padding: 11px 15px;
+  font-size: 0.82rem;
+  color: #A04030;
+  line-height: 1.5;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.email-error.show { display: block; }
+input.input-error {
+  border-color: var(--terracotta) !important;
+  box-shadow: 0 0 0 3px rgba(196,113,74,0.15) !important;
+}
+.field-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+input[type="text"], input[type="email"] {
+  width: 100%;
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 13px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-weight: 400;
+}
+input:focus { border-color: var(--terracotta-light); box-shadow: 0 0 0 3px rgba(196,113,74,0.1); }
+input::placeholder { color: var(--light); }
+
+/* ── NAV ── */
+.nav { display: flex; gap: 12px; align-items: center; margin-top: 8px; }
+
+/* ── THANK YOU ── */
+.thankyou { display: none; text-align: center; padding: 40px 0; animation: fadeUp 0.6s ease; }
+.thankyou.active { display: block; }
+.ty-icon {
+  width: 76px; height: 76px;
+  background: var(--forest);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; margin: 0 auto 28px;
+  box-shadow: 0 8px 28px rgba(58,82,68,0.25);
+}
+.ty-h2 { font-family: 'Lora', serif; font-size: 2rem; margin-bottom: 14px; }
+.ty-body { font-size: 0.95rem; color: var(--mid); line-height: 1.8; max-width: 440px; margin: 0 auto 32px; font-weight: 300; }
+.ty-card {
+  background: var(--forest);
+  border-radius: 16px;
+  padding: 26px 30px;
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: left;
+}
+.ty-card h3 { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta-light); font-weight: 600; margin-bottom: 14px; }
+.ty-card ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.ty-card ul li { font-size: 0.84rem; color: rgba(250,247,242,0.75); line-height: 1.55; display: flex; gap: 9px; }
+.ty-card ul li::before { content: "→"; color: var(--terracotta-light); font-weight: 700; flex-shrink: 0; }
+
+/* ── ADVISOR ── */
+.submit-status {
+  margin-top: 16px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+.submit-status.success {
+  display: block;
+  background: var(--forest-pale);
+  border: 1px solid rgba(58,82,68,0.2);
+  color: var(--forest);
+}
+.submit-status.error {
+  display: block;
+  background: #FDF0EE;
+  border: 1px solid rgba(196,113,74,0.3);
+  color: #A04030;
+}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.ty-credit span {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.ty-credit span strong {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(58,82,68,0.4);
+  z-index: 100;
+  transition: all 0.2s;
+}
+.version-stamp {
+  font-size: 0.65rem;
+  color: var(--light);
+  text-align: center;
+  margin-top: 12px;
+  letter-spacing: 0.06em;
+}
+.adv-toggle:hover { background: var(--forest-light); transform: translateY(-2px); }
+.adv-toggle.show { display: flex; }
+.adv-dot { width: 8px; height: 8px; background: var(--terracotta-light); border-radius: 50%; animation: pulse 2s infinite; }
+
+.adv-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(30,30,26,0.6);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  align-items: flex-end; justify-content: center;
+  padding: 16px;
+}
+.adv-overlay.open { display: flex; }
+.adv-panel {
+  background: var(--warm-white);
+  border-radius: 20px 20px 14px 14px;
+  width: 100%; max-width: 720px;
+  max-height: 88vh; overflow-y: auto;
+  animation: slideUp 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+.adv-head {
+  background: var(--forest);
+  padding: 22px 28px;
+  border-radius: 20px 20px 0 0;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.adv-head h2 { font-family: 'Lora', serif; color: var(--cream); font-size: 1.15rem; }
+.adv-head p { color: rgba(250,247,242,0.45); font-size: 0.74rem; margin-top: 3px; }
+.adv-x {
+  background: rgba(255,255,255,0.12); border: none; color: var(--cream);
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background 0.2s;
+}
+.adv-x:hover { background: rgba(255,255,255,0.2); }
+.adv-body { padding: 28px; display: flex; flex-direction: column; gap: 22px; }
+.adv-section-label {
+  font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 9px;
+}
+.asl-terra { color: var(--terracotta); }
+.asl-forest { color: var(--forest); }
+.adv-box {
+  background: var(--cream); border: 1px solid var(--border); border-radius: 11px;
+  padding: 18px; font-size: 0.84rem; line-height: 1.7; color: var(--charcoal);
+  white-space: pre-wrap; min-height: 56px;
+}
+.adv-box.dark {
+  background: var(--forest); color: rgba(250,247,242,0.88);
+  border: none; min-height: 120px;
+}
+.adv-box.placeholder { color: var(--light); font-style: italic; }
+
+.waiting {
+  display: none; background: #FFF8E8; border: 1px solid rgba(196,113,74,0.2);
+  border-radius: 10px; padding: 12px 16px; font-size: 0.8rem; color: #8A5E00;
+  align-items: center; gap: 9px;
+}
+.waiting.show { display: flex; }
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(196,113,74,0.25);
+  border-top-color: var(--terracotta);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+.copy-btn {
+  background: transparent; border: 1.5px solid var(--border); color: var(--muted);
+  padding: 7px 18px; border-radius: 20px; font-size: 0.74rem; font-weight: 600;
+  cursor: pointer; margin-top: 10px; font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; letter-spacing: 0.03em;
+}
+.copy-btn:hover { border-color: var(--terracotta-light); color: var(--terracotta); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideUp { from { transform:translateY(32px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+@media (max-width:580px) {
+  .header { padding: 0 18px; }
+  .main { padding: 36px 16px 100px; }
+  .intro-grid { grid-template-columns: 1fr; }
+  .dim-grid { grid-template-columns: 1fr 1fr; }
+  .q-wrap { padding: 24px 18px 20px; }
+  .adv-body { padding: 18px; }
+  .prog-track { display: none; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- HEADER -->
+<div class="header">
+  <div class="brand">
+    <div class="logo-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Speech bubble body -->
+        <path d="M6 7C6 5.34 7.34 4 9 4H27C28.66 4 30 5.34 30 7V21C30 22.66 28.66 24 27 24H21L18 29L15 24H9C7.34 24 6 22.66 6 21V7Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <!-- Centre node -->
+        <circle cx="18" cy="14" r="2.2" fill="white"/>
+        <!-- Orbiting dots — suggest intelligence/network -->
+        <circle cx="11.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+        <circle cx="24.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+        <circle cx="11.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+        <circle cx="24.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+        <!-- Connector lines -->
+        <line x1="13.2" y1="12.2" x2="16.1" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+        <line x1="22.8" y1="12.2" x2="19.9" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+        <line x1="13.2" y1="15.8" x2="16.1" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+        <line x1="22.8" y1="15.8" x2="19.9" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Yea <em>I</em></div>
+      <div class="logo-sub">AI Strategy</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="header-divider"></div>
+    <div class="header-tool-name">Readiness Diagnostic</div>
+    <div class="prog-text" id="progText">Introduction</div>
+    <div class="prog-track"><div class="prog-bar" id="progBar"></div></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- INTRO -->
+  <div class="intro" id="introScreen">
+    <div class="intro-presented">
+      <div class="intro-logo-mark">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 7C6 5.34 7.34 4 9 4H27C28.66 4 30 5.34 30 7V21C30 22.66 28.66 24 27 24H21L18 29L15 24H9C7.34 24 6 22.66 6 21V7Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <circle cx="18" cy="14" r="2.2" fill="white"/>
+          <circle cx="11.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="24.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="11.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="24.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <line x1="13.2" y1="12.2" x2="16.1" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="22.8" y1="12.2" x2="19.9" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="13.2" y1="15.8" x2="16.1" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="22.8" y1="15.8" x2="19.9" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <span>A <strong>Yea I</strong> diagnostic tool</span>
+    </div>
+    <div class="intro-eyebrow">Confidential · 7–8 minutes · No obligation</div>
+    <h1 class="intro-h1">How <em>AI-ready</em> is<br>your business, really?</h1>
+    <p class="intro-lead">Most businesses know AI matters. Far fewer know where they actually stand — or what a sensible next step looks like. This diagnostic gives you an honest, personalised picture and a practical roadmap to move forward.</p>
+
+    <div class="intro-grid">
+      <div class="intro-tile">
+        <div class="tile-icon ic-terra">◆</div>
+        <div class="tile-copy"><strong>Readiness Score</strong><span>Across 6 key dimensions of AI maturity</span></div>
+      </div>
+      <div class="intro-tile">
+        <div class="tile-icon ic-forest">→</div>
+        <div class="tile-copy"><strong>Personalised Roadmap</strong><span>Phase-by-phase actions for your specific situation</span></div>
+      </div>
+      <div class="intro-tile">
+        <div class="tile-icon ic-terra">✓</div>
+        <div class="tile-copy"><strong>Expert Review</strong><span>Reviewed and written by a real advisor — not auto-generated</span></div>
+      </div>
+      <div class="intro-tile">
+        <div class="tile-icon ic-sand">◎</div>
+        <div class="tile-copy"><strong>No Obligation</strong><span>Useful whether or not we end up working together</span></div>
+      </div>
+    </div>
+
+    <div class="intro-dims">
+      <h3>Six dimensions we assess</h3>
+      <div class="dim-grid">
+        <div class="dim-chip">Strategy &amp; Leadership</div>
+        <div class="dim-chip">Data &amp; Infrastructure</div>
+        <div class="dim-chip">People &amp; Skills</div>
+        <div class="dim-chip">Tools &amp; Technology</div>
+        <div class="dim-chip">Process &amp; Operations</div>
+        <div class="dim-chip">Culture &amp; Risk</div>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="start()">Begin the diagnostic →</button>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="qContainer"></div>
+
+  <!-- THANK YOU -->
+  <div class="thankyou" id="tyScreen">
+    <div class="ty-icon">✦</div>
+    <h2 class="ty-h2">You're all done — thank you.</h2>
+    <p class="ty-body">Your responses are with us. We'll review your diagnostic personally and send back a tailored readiness report, usually within one working day.</p>
+    <div class="ty-card">
+      <h3>What to expect</h3>
+      <ul>
+        <li>A maturity tier and readiness score across the six dimensions</li>
+        <li>Honest observations drawn from your specific answers</li>
+        <li>A three-phase roadmap with concrete, prioritised next steps</li>
+        <li>Watch points based on your blockers and leadership culture</li>
+        <li>Written by a real person — reviewed before it's sent to you</li>
+      </ul>
+    </div>
+    <div class="ty-credit">
+      <div class="intro-logo-mark" style="width:26px;height:26px;border-radius:7px;">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;">
+          <path d="M6 7C6 5.34 7.34 4 9 4H27C28.66 4 30 5.34 30 7V21C30 22.66 28.66 24 27 24H21L18 29L15 24H9C7.34 24 6 22.66 6 21V7Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <circle cx="18" cy="14" r="2.2" fill="white"/>
+          <circle cx="11.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="24.5" cy="11" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="11.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="24.5" cy="17" r="1.3" fill="rgba(255,255,255,0.7)"/>
+          <line x1="13.2" y1="12.2" x2="16.1" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="22.8" y1="12.2" x2="19.9" y2="13.2" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="13.2" y1="15.8" x2="16.1" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <line x1="22.8" y1="15.8" x2="19.9" y2="14.8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <span>Powered by <strong>Yea I</strong> · AI Strategy Consulting</span>
+    </div>
+    <div class="submit-status" id="submitStatus"></div>
+    <div class="version-stamp">v3.0 — EmailJS build</div>
+  </div>
+
+</div>
+
+<!-- ADVISOR TOGGLE -->
+<button class="adv-toggle" id="advToggle" onclick="openAdv()">
+  <div class="adv-dot"></div>
+  Advisor View
+</button>
+
+<!-- ADVISOR PANEL -->
+<div class="adv-overlay" id="advOverlay">
+  <div class="adv-panel">
+    <div class="adv-head">
+      <div>
+        <h2>Advisor Review Panel</h2>
+        <p>Private — not visible to the respondent</p>
+      </div>
+      <button class="adv-x" onclick="closeAdv()">✕</button>
+    </div>
+    <div class="adv-body">
+
+      <div>
+        <div class="adv-section-label asl-forest">Respondent</div>
+        <div class="adv-box" id="advRespondent">—</div>
+      </div>
+
+      <div>
+        <div class="adv-section-label asl-forest">Response Summary</div>
+        <div class="adv-box placeholder" id="advRaw">Submit the form to see responses here.</div>
+      </div>
+
+      <div class="waiting" id="advWaiting">
+        <div class="spinner"></div>
+        Generating your diagnosis — usually takes around 20 seconds…
+      </div>
+
+      <div>
+        <div class="adv-section-label asl-terra">AI-Generated Diagnosis &amp; Roadmap Draft</div>
+        <div class="adv-box dark placeholder" id="advDiagnosis">Your diagnosis will appear here once the form is submitted.</div>
+        <button class="copy-btn" onclick="copyDiag()">Copy to clipboard</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─────────────────────────────────────────
+   DATA
+───────────────────────────────────────── */
+const SECTIONS = {
+  about:    { label:"About Your Business",   dot:"sd-about",    banner:"sb-about",    tag:"dt-about",    slabel:"sl-about",   icon:"🏢", desc:"Context about your business so every recommendation is relevant to your situation." },
+  strategy: { label:"Strategy & Leadership", dot:"sd-strategy", banner:"sb-strategy", tag:"dt-strategy", slabel:"sl-strategy",icon:"🎯", desc:"Whether AI is on the agenda, who owns it, and whether there's investment behind the intent." },
+  data:     { label:"Data & Infrastructure", dot:"sd-data",     banner:"sb-data",     tag:"dt-data",     slabel:"sl-data",    icon:"🗄️", desc:"The state of your data and systems — the foundation everything else depends on." },
+  people:   { label:"People & Skills",        dot:"sd-people",   banner:"sb-people",   tag:"dt-people",   slabel:"sl-people",  icon:"👥", desc:"AI literacy, training, and how your team responds to change." },
+  tools:    { label:"Tools & Technology",     dot:"sd-tools",    banner:"sb-tools",    tag:"dt-tools",    slabel:"sl-tools",   icon:"🔧", desc:"What AI tools you're using today and how deeply they're embedded in your work." },
+  process:  { label:"Process & Operations",  dot:"sd-process",  banner:"sb-process",  tag:"dt-process",  slabel:"sl-process", icon:"⚙️", desc:"How automated your operations are and where AI can realistically add the most value." },
+  culture:  { label:"Culture & Risk",         dot:"sd-culture",  banner:"sb-culture",  tag:"dt-culture",  slabel:"sl-culture", icon:"🌱", desc:"Leadership attitude, risk appetite, and the ethical questions on your mind." }
+};
+
+const Qs = [
+  // ABOUT
+  { id:"contact", section:"about", type:"contact", newSection:true,
+    text:"Let's start with a bit about you",
+    why:"This lets us give context-relevant advice rather than generic guidance. Your details stay confidential.",
+    fields:[
+      {name:"name",    label:"Your name",      type:"text",  placeholder:"e.g. Sarah Johnson"},
+      {name:"company", label:"Company name",   type:"text",  placeholder:"e.g. Acme Ltd"},
+      {name:"email",   label:"Email address",  type:"email", placeholder:"e.g. sarah@acme.com"},
+      {name:"role",    label:"Your role / job title", type:"text", placeholder:"e.g. Managing Director"}
+    ]
+  },
+  { id:"sector", section:"about", type:"single", newSection:false,
+    text:"What sector does your business operate in?",
+    why:"AI opportunities, risks and typical use cases vary significantly by industry. This shapes the relevance of every recommendation.",
+    options:[
+      {title:"Marketing, Media & Creative",    desc:"Agencies, publishers, content studios, PR firms"},
+      {title:"Professional Services",          desc:"Consulting, legal, finance, accounting, recruitment"},
+      {title:"Retail & E-commerce",            desc:"Physical stores or online product businesses"},
+      {title:"Hospitality, Food & Beverage",   desc:"Restaurants, hotels, FMCG and consumer brands"},
+      {title:"Technology & SaaS",              desc:"Software products, platforms, tech services"},
+      {title:"Healthcare & Wellbeing",         desc:"Clinics, wellness brands, health services"},
+      {title:"Manufacturing & Logistics",      desc:"Production, supply chain, distribution"},
+      {title:"Construction & Property",        desc:"Contractors, developers, architects, estate agents"},
+      {title:"Education & Training",           desc:"Schools, universities, training providers, e-learning"},
+      {title:"Other / Not listed",             desc:"Tell us more in a later question"}
+    ]
+  },
+  { id:"size", section:"about", type:"single", newSection:false,
+    text:"How many people work in your business?",
+    why:"Team size affects what's realistically achievable, how fast you can move, and what change management looks like.",
+    options:[
+      {title:"Just me — solo or founder-led",  desc:"Working alone, or with occasional freelancers"},
+      {title:"2–10 people",                    desc:"Small, close-knit team"},
+      {title:"11–50 people",                   desc:"Growing SME with defined departments or functions"},
+      {title:"51–200 people",                  desc:"Established mid-market business"},
+      {title:"200+ people",                    desc:"Larger organisation with multiple teams or sites"}
+    ]
+  },
+  { id:"revenue", section:"about", type:"single", newSection:false,
+    text:"Roughly what's your annual revenue or budget scale?",
+    why:"This helps us calibrate realistic investment levels and tool recommendations — no ballpark means generic advice.",
+    options:[
+      {title:"Pre-revenue or early stage",     desc:""},
+      {title:"Under £1m / $1m",               desc:""},
+      {title:"£1m – £5m / $1m – $5m",        desc:""},
+      {title:"£5m – £25m / $5m – $25m",      desc:""},
+      {title:"£25m+ / $25m+",                 desc:""},
+      {title:"Prefer not to say",              desc:""}
+    ]
+  },
+
+  // STRATEGY
+  { id:"pain_point", section:"about", type:"text", newSection:false,
+    text:"What are your three biggest business pain points right now?",
+    why:"Understanding where the real friction is in your business helps us identify where AI is most likely to make a meaningful difference — rather than just recommending what sounds good in theory.",
+    placeholder:"e.g. 1. We spend too much time on manual admin and reporting  2. Our sales team can't keep up with follow-ups  3. We struggle to produce consistent marketing content at the pace we need..."
+  },
+  { id:"ai_vision", section:"strategy", type:"single", newSection:true,
+    text:"Does your business have a defined AI strategy or vision?",
+    why:"We're not asking whether you use AI tools — we're asking whether there's intentional thinking about where AI fits into your overall direction and goals.",
+    options:[
+      {title:"No — AI isn't on our strategic agenda yet",          desc:"It hasn't come up at leadership level in any meaningful way"},
+      {title:"It's come up, but nothing has been formalised",      desc:"General awareness that it matters, but no documented direction"},
+      {title:"We have a rough sense of direction but nothing written down", desc:"Some internal consensus, but not committed to paper"},
+      {title:"We have a documented AI strategy that's in progress", desc:"Written, being developed — not yet fully adopted or acted on"},
+      {title:"We have a clear, active AI strategy",                desc:"Leadership-aligned, with defined goals and clear accountability"}
+    ]
+  },
+  { id:"ai_goals", section:"strategy", type:"multi", newSection:false,
+    text:"What do you want to achieve with AI?",
+    why:"Knowing your goals up front means the roadmap we build is pointed in the right direction from the start — not just a generic list of AI things you could theoretically do.",
+    options:[
+      {title:"Save time and reduce manual workload",       desc:"Free up the team from repetitive tasks so they can focus on higher-value work"},
+      {title:"Improve quality and consistency of output",  desc:"Better, more reliable work — from content to reporting to customer communication"},
+      {title:"Grow revenue or win more business",          desc:"Use AI to improve sales, marketing, or product"},
+      {title:"Reduce costs",                              desc:"Do more with the same team, or find efficiencies across operations"},
+      {title:"Improve customer experience",               desc:"Faster responses, better personalisation, smarter service"},
+      {title:"Stay competitive",                          desc:"Keep pace with — or get ahead of — what competitors are doing with AI"},
+      {title:"Understand what's possible",                desc:"Not sure yet — want an honest picture before committing to anything"},
+      {title:"Something specific not listed here",        desc:"Tell us more in the open questions at the end"}
+    ]
+  },
+  { id:"ai_ownership", section:"strategy", type:"single", newSection:false,
+    text:"Who owns AI strategy and implementation in your business?",
+    why:"Accountability is one of the strongest predictors of whether AI initiatives actually happen — or quietly die on a slide somewhere.",
+    options:[
+      {title:"Nobody owns it at the moment",                   desc:"It hasn't been assigned to anyone"},
+      {title:"Whoever happens to be most interested",          desc:"Informal, enthusiasm-driven — no formal accountability"},
+      {title:"A senior leader, alongside other responsibilities", desc:"It's on someone's plate but not their primary focus"},
+      {title:"A dedicated person or small team",               desc:"An AI lead, Head of Digital, or equivalent role"},
+      {title:"It's embedded at board or C-suite level",        desc:"Part of the core leadership agenda, not a side project"}
+    ]
+  },
+  { id:"ai_budget", section:"strategy", type:"single", newSection:false,
+    text:"How does AI feature in your budgeting and investment planning?",
+    why:"Strategy without budget rarely moves. How AI is funded — or not — tells us a lot about the seriousness of the intent.",
+    options:[
+      {title:"No budget allocated to AI at all",                    desc:"It's not a line item anywhere"},
+      {title:"Free tools only — no formal spend",                   desc:"ChatGPT free tier, no investment beyond time"},
+      {title:"Informal subscriptions — individuals paying themselves", desc:"A few people have personal Pro accounts, but it's ad hoc"},
+      {title:"AI tools are a planned budget line, however small",    desc:"Some formal spend, even if modest"},
+      {title:"We have meaningful investment allocated",             desc:"Covering tools, training, external support, or dedicated headcount"}
+    ]
+  },
+
+  // DATA
+  { id:"data_quality", section:"data", type:"single", newSection:true,
+    text:"How would you describe the state of your business data?",
+    why:"AI is only as good as the data behind it. Poor data quality is the single most common reason AI projects underdeliver — and the most underestimated factor.",
+    options:[
+      {title:"We don't have structured data to speak of",           desc:"Most information lives in people's heads, emails or spreadsheets with no consistency"},
+      {title:"Data exists but it's scattered and unreliable",       desc:"Multiple systems that don't talk to each other, lots of gaps and inconsistencies"},
+      {title:"Patchy — well-organised in some areas, not in others", desc:"Good pockets of clean data, but no consistent standard across the business"},
+      {title:"Most of our key data is structured and accessible",   desc:"Reasonably reliable across core functions, though integration could be better"},
+      {title:"Clean, well-maintained and consistently structured",  desc:"A solid foundation — reliable enough to build on with confidence"}
+    ]
+  },
+  { id:"data_systems", section:"data", type:"multi", newSection:false,
+    text:"Which of these systems or platforms does your business currently use?",
+    why:"Knowing your tech stack tells us what AI can plug into directly — and where the integration gaps are likely to be.",
+    options:[
+      {title:"CRM system",                         desc:"e.g. Salesforce, HubSpot, Pipedrive, Zoho"},
+      {title:"Finance or ERP system",              desc:"e.g. Xero, Sage, QuickBooks, NetSuite"},
+      {title:"Marketing platform",                 desc:"e.g. Mailchimp, Klaviyo, Marketo, HubSpot Marketing"},
+      {title:"Customer support platform",          desc:"e.g. Zendesk, Intercom, Freshdesk"},
+      {title:"Cloud storage or document management", desc:"e.g. Google Workspace, Microsoft 365, SharePoint, Notion"},
+      {title:"Analytics or business intelligence tool", desc:"e.g. Google Analytics, Tableau, Power BI, Looker"},
+      {title:"E-commerce platform",                desc:"e.g. Shopify, WooCommerce, Magento"},
+      {title:"Project management or collaboration tool", desc:"e.g. Asana, Monday, Jira, ClickUp"},
+      {title:"None of the above / mainly spreadsheets", desc:""}
+    ]
+  },
+  { id:"customer_data", section:"data", type:"single", newSection:false,
+    text:"Where does your customer data actually live?",
+    why:"Customer data is typically the most valuable input for AI in an SME — but only if it's in one place and consistently maintained. Fragmented customer records are one of the most common blockers we see.",
+    options:[
+      {title:"Mostly in people's heads, emails and inboxes",        desc:"No single system — knowledge walks out the door when people leave"},
+      {title:"Spread across multiple spreadsheets",                 desc:"Data exists, but it's inconsistent, duplicated and hard to act on"},
+      {title:"In a CRM, but it's incomplete or poorly maintained",  desc:"The system is there but the data hygiene isn't — gaps, duplicates, old records"},
+      {title:"In a CRM that's reasonably well maintained",          desc:"Reliable enough for most purposes, could be cleaner"},
+      {title:"In a single, clean, consistently updated system",     desc:"A solid customer data foundation — well maintained and trusted by the team"}
+    ]
+  },
+  { id:"data_capture", section:"data", type:"multi", newSection:false,
+    text:"Which of these data problems do you recognise in your business?",
+    why:"These are the most common data readiness issues we find in SMEs. Being honest about them now means the roadmap addresses the real foundations — not just the exciting stuff on top.",
+    options:[
+      {title:"Customer records are duplicated or inconsistent",      desc:"Same customer, multiple records — or records that contradict each other"},
+      {title:"Financial data requires manual reconciliation",        desc:"Someone has to bridge the gap between systems by hand"},
+      {title:"Website and marketing analytics aren't properly set up", desc:"You're flying blind on what's working and what isn't"},
+      {title:"Product or service data isn't consistently maintained", desc:"Descriptions, pricing, specs — held differently across different places"},
+      {title:"Operational data isn't being captured at all",         desc:"Key processes happen but nothing is recorded or measured"},
+      {title:"Data sits in formats AI can't easily read",            desc:"PDFs, scanned documents, handwritten notes, legacy file formats"},
+      {title:"None of these — our data is in good shape",           desc:""}
+    ]
+  },
+  { id:"system_integration", section:"data", type:"single", newSection:false,
+    text:"How well do your existing software systems connect and share data with each other?",
+    why:"AI works best when it can pull from and push to the tools your business already uses. Disconnected systems don't just create extra work — they create a ceiling on what AI can actually do for you.",
+    options:[
+      {title:"They don't — each system is completely siloed",        desc:"Data has to be manually copied or re-entered between tools"},
+      {title:"Minimal connection — a couple of basic integrations",  desc:"Some data flows automatically, most doesn't"},
+      {title:"Partial — key systems are connected, others aren't",   desc:"The core is reasonably joined up, gaps exist at the edges"},
+      {title:"Most systems share data reasonably well",              desc:"Solid integration across the main tools, minor gaps"},
+      {title:"Fully connected — our stack works as one ecosystem",   desc:"Data flows freely, automations run across systems, minimal manual bridging"}
+    ]
+  },
+  { id:"tech_type", section:"data", type:"single", newSection:false,
+    text:"How would you describe your current software setup overall?",
+    why:"The type of software you use has a big impact on what's possible and how quickly. Cloud-based tools with open APIs can be connected to AI in hours — legacy desktop software can take months.",
+    options:[
+      {title:"Mostly legacy desktop software",                       desc:"Older installed programs that don't connect easily to modern tools"},
+      {title:"A mix of old and new — some legacy, some cloud",       desc:"Transition is happening but it's not complete"},
+      {title:"Mostly cloud-based, but not well integrated",          desc:"Modern tools, but they're not talking to each other effectively"},
+      {title:"Cloud-based and reasonably well connected",            desc:"Good foundation — most tools have APIs and some integration already exists"},
+      {title:"Cloud-native, well integrated, with automation in place", desc:"The infrastructure is ready — AI can be layered on with relatively low friction"}
+    ]
+  },
+
+  // PEOPLE
+  { id:"ai_literacy", section:"people", type:"single", newSection:true,
+    text:"How would you assess AI literacy across your team as a whole?",
+    why:"We're not asking about technical skills — we mean general understanding of what AI can do, and confidence to experiment with it day-to-day.",
+    options:[
+      {title:"Very low — most people have little or no exposure", desc:"AI feels abstract or irrelevant to most of the team"},
+      {title:"One or two curious people, but no general awareness", desc:"AI is seen as someone else's responsibility"},
+      {title:"Growing awareness, but mixed confidence",            desc:"Some experimenting quietly, others disengaged or sceptical"},
+      {title:"Most of the team understands AI's potential and uses basic tools", desc:"A reasonable baseline — people are engaged, not just aware"},
+      {title:"High literacy across the business",                  desc:"The team actively explores and applies AI tools in their roles"}
+    ]
+  },
+  { id:"training", section:"people", type:"single", newSection:false,
+    text:"Has your business invested in any AI training or upskilling?",
+    why:"This can be formal or informal — online courses, workshops, internal demos, or simply giving people dedicated time to explore. What matters is whether it's been deliberate.",
+    options:[
+      {title:"No investment in training at all",                       desc:"Nothing has been organised or encouraged"},
+      {title:"People have self-taught entirely in their own time",     desc:"No company-led effort — it's been left to individuals"},
+      {title:"We've circulated some articles or resources informally", desc:"Awareness without structure"},
+      {title:"We've run at least one structured training session",     desc:"A workshop, demo, or formal learning session has taken place"},
+      {title:"AI upskilling is an ongoing part of how we develop people", desc:"Built into L&D, not a one-off"}
+    ]
+  },
+  { id:"change_culture", section:"people", type:"single", newSection:false,
+    text:"How does your team generally respond to new technology or ways of working?",
+    why:"AI adoption requires people to change how they work. Your organisation's baseline adaptability is one of the biggest factors in how fast — and how smoothly — this goes.",
+    options:[
+      {title:"Strong resistance — change is usually hard here",    desc:"New tools or processes are met with reluctance or anxiety"},
+      {title:"Mixed — some people embrace it, others dig in",      desc:"The response depends a lot on who's involved"},
+      {title:"Generally accepting when the case is made well",     desc:"People come around once they understand the benefit"},
+      {title:"Mostly open — we have a reasonably adaptable culture", desc:"New ways of working are typically adopted without too much friction"},
+      {title:"Enthusiastic — we actively seek out better approaches", desc:"Change is seen as exciting, not threatening"}
+    ]
+  },
+
+  // TOOLS
+  { id:"current_tools", section:"tools", type:"multi", newSection:true,
+    text:"Which AI tools or capabilities is your team currently using?",
+    why:"Tick everything in active use — even if it's just one or two people using something occasionally. This gives us a realistic baseline to build from.",
+    options:[
+      {title:"General AI assistants",                  desc:"ChatGPT, Claude, Gemini — for writing, research, analysis"},
+      {title:"Microsoft Copilot or Google Gemini for Work", desc:"AI embedded directly in Office 365 or Google Workspace"},
+      {title:"AI image or video generation",           desc:"Midjourney, DALL-E, Sora, Runway, Adobe Firefly"},
+      {title:"AI coding tools",                        desc:"GitHub Copilot, Cursor, Replit, or similar"},
+      {title:"AI-powered customer chatbot or support tool", desc:"Live on your website or inside your product"},
+      {title:"AI for marketing or content at scale",   desc:"Jasper, Copy.ai, Pencil, AdCreative, Canva AI"},
+      {title:"AI analytics, forecasting or data tools", desc:"Tools that use AI to surface insights from your data"},
+      {title:"Automation platforms with AI steps",     desc:"Zapier, Make (Integromat), n8n — with AI-powered actions"},
+      {title:"None in active use yet",                 desc:""}
+    ]
+  },
+  { id:"tool_depth", section:"tools", type:"single", newSection:false,
+    text:"How deeply are AI tools integrated into your team's day-to-day work?",
+    why:"There's a significant difference between 'someone opens ChatGPT occasionally' and AI being genuinely woven into how the business operates. Where would you honestly place yourself?",
+    options:[
+      {title:"We don't really use AI tools in our day-to-day",  desc:"Maybe a one-off experiment, but nothing consistent"},
+      {title:"Occasional use — a handful of times per week",    desc:"It's more experiment than habit at this stage"},
+      {title:"Regular use by some people for specific tasks",   desc:"Genuinely useful in certain areas, but not transformative yet"},
+      {title:"Multiple people rely on AI tools as part of their routine", desc:"Measurable time saving and productivity impact"},
+      {title:"AI is embedded in our core workflows",            desc:"It would be hard to imagine going back — it's part of how we work"}
+    ]
+  },
+
+  // PROCESS
+  { id:"automation", section:"process", type:"single", newSection:true,
+    text:"How automated are your business operations and workflows right now?",
+    why:"Not AI specifically — any kind of systematic automation. This tells us how ready the ground is for AI-powered improvements, and where the quick wins are most likely to be.",
+    options:[
+      {title:"Very manual — most things are done by hand",           desc:"Heavy reliance on email, spreadsheets and individual effort to keep things moving"},
+      {title:"Some basic automation exists",                         desc:"e.g. email sequences, scheduled reports, simple recurring tasks"},
+      {title:"Moderate automation across a few functions",           desc:"Meaningful time savings in places, gaps in others"},
+      {title:"Well-automated in most areas with some manual gaps",   desc:"Routine tasks are largely handled by systems"},
+      {title:"Highly automated",                                     desc:"AI is already actively reducing manual effort across the business"}
+    ]
+  },
+  { id:"use_cases", section:"process", type:"multi", newSection:false,
+    text:"Where do you see the most realistic potential for AI in your business?",
+    why:"Pick everything that feels genuinely relevant to how your business works. This directly shapes the priorities in the roadmap we put together for you.",
+    options:[
+      {title:"Writing, editing and content production",     desc:"Emails, reports, proposals, marketing copy, social content"},
+      {title:"Customer communication and support",          desc:"Faster responses, personalisation, chatbots, follow-ups"},
+      {title:"Research and competitive intelligence",       desc:"Market analysis, summarising documents, staying across your sector"},
+      {title:"Sales enablement",                           desc:"Prospecting, outreach, proposals, CRM enrichment, forecasting"},
+      {title:"Finance and reporting",                      desc:"Forecasting, data analysis, dashboards, month-end processes"},
+      {title:"HR and talent",                              desc:"Hiring, onboarding, performance conversations, training materials"},
+      {title:"Product or service development",             desc:"Ideation, customer feedback analysis, prototyping, documentation"},
+      {title:"Operations and logistics",                   desc:"Scheduling, inventory, procurement, supply chain coordination"}
+    ]
+  },
+  { id:"main_blocker", section:"process", type:"single", newSection:false,
+    text:"What's the single biggest obstacle to AI adoption in your business right now?",
+    why:"Pick the one that's most true, even if a few resonate. Knowing the real blocker is the only way to give you advice that will actually move things forward.",
+    options:[
+      {title:"We genuinely don't know where to start",          desc:"The landscape is noisy, confusing and hard to cut through"},
+      {title:"Cost — the investment is hard to justify",        desc:"ROI isn't clear enough to unlock budget or leadership support"},
+      {title:"We don't have the skills to implement it",        desc:"No one with the confidence or expertise to lead it properly"},
+      {title:"Data privacy and security concerns",             desc:"Uncertainty about what's safe or appropriate to share with AI systems"},
+      {title:"Leadership buy-in isn't there yet",              desc:"Not seen as a priority, or there's active scepticism at the top"},
+      {title:"We're already moving — just not fast enough",    desc:"The intent is there, execution is the problem"}
+    ]
+  },
+
+  // CULTURE
+  { id:"leadership_attitude", section:"culture", type:"single", newSection:true,
+    text:"How does your leadership team genuinely feel about AI?",
+    why:"Leadership attitude is the single biggest cultural variable in AI adoption. Be honest here — optimistic assessments lead to recommendations that won't actually land.",
+    options:[
+      {title:"Actively opposed or deeply sceptical",             desc:"AI is seen as a threat, overhyped, risky, or simply not relevant to us"},
+      {title:"Passively disengaged",                            desc:"Not opposed, but not paying attention either — it's not on their radar"},
+      {title:"Open, but waiting for someone else to make the case", desc:"Receptive if convinced, but won't initiate or push for it"},
+      {title:"Enthusiastic but uncertain how to act on it",     desc:"Positive intent and genuine interest — needs structure and a plan"},
+      {title:"Actively driving the AI agenda",                  desc:"Leadership is the catalyst here, not the obstacle"}
+    ]
+  },
+  { id:"risk_appetite", section:"culture", type:"single", newSection:false,
+    text:"How does your business approach risk and experimentation?",
+    why:"AI adoption requires a tolerance for trying things, learning from what doesn't work, and iterating. This shapes what a realistic implementation timeline looks like for you.",
+    options:[
+      {title:"Very risk-averse — we need proof before we try things", desc:"New approaches have to be watertight before anyone commits"},
+      {title:"Cautious — we pilot quietly before any wider rollout",  desc:"Small, low-stakes tests first — then scale if it works"},
+      {title:"Balanced — we manage risk but don't let it stop us",    desc:"Happy to experiment with reasonable guardrails in place"},
+      {title:"Entrepreneurial — we move fast and course-correct",     desc:"Speed matters more than certainty — we'll figure it out"},
+      {title:"Experimental — we actively build a test-and-learn culture", desc:"Failure is expected and accepted as a natural part of making progress"}
+    ]
+  },
+  { id:"concerns", section:"culture", type:"multi", newSection:false,
+    text:"Which of these ethical or practical concerns do you have about AI?",
+    why:"All of these are legitimate. Flagging them explicitly means we can address them in your roadmap rather than leaving them to surface as objections later.",
+    options:[
+      {title:"Data privacy",                desc:"What we'd be sharing with AI systems — and where that data goes"},
+      {title:"Accuracy and reliability",    desc:"AI producing incorrect, misleading or confidently wrong outputs"},
+      {title:"Impact on our team",          desc:"Job displacement, morale, or people feeling threatened"},
+      {title:"Brand and reputational risk", desc:"AI producing off-brand, inappropriate or embarrassing content"},
+      {title:"Over-reliance",              desc:"Losing human judgment, institutional knowledge or critical thinking"},
+      {title:"Regulatory and compliance risk", desc:"Particularly relevant in regulated sectors like finance, healthcare or legal"},
+      {title:"None of these — we're not significantly concerned", desc:""}
+    ]
+  },
+
+  // OPEN QUESTIONS
+  { id:"goal", section:"strategy", type:"text", newSection:false,
+    text:"What would a genuinely successful AI outcome look like for your business?",
+    why:"This is the most important question in the diagnostic. Be as specific or as broad as you like — your answer shapes the entire roadmap we build for you.",
+    placeholder:"e.g. Cut the time we spend on admin and reporting by a third, improve the consistency and speed of our marketing output, build confidence that we're not falling behind our competitors, understand what AI could realistically save us in time and cost over the next year..."
+  },
+  { id:"appetite", section:"culture", type:"single", newSection:false,
+    text:"What's your realistic appetite for change and investment over the next 12 months?",
+    why:"Honest answers lead to practical recommendations. Ambition is good — but overcommitting leads to stalled initiatives that set AI adoption back further.",
+    options:[
+      {title:"Low — quick wins only, minimum disruption",        desc:"A few tools adopted quietly, no structural change"},
+      {title:"Moderate — steady progress on a limited budget",   desc:"Build confidence gradually, learn as we go, keep it manageable"},
+      {title:"Meaningful — prepared to change some of how we work", desc:"Willing to invest time, budget and attention to do this properly"},
+      {title:"Ambitious — we want real, lasting transformation", desc:"Prepared to make AI a genuine competitive differentiator"}
+    ]
+  },
+  { id:"other", section:"about", type:"text", newSection:false,
+    text:"Is there anything specific you'd like us to address in your report?",
+    why:"Optional — but the more context you give us, the more directly useful the report will be.",
+    placeholder:"e.g. A competitor you're watching closely, a specific process you want help with, a previous AI project that didn't go well and why, a tool you've heard about and want our view on, a concern you haven't been able to voice elsewhere..."
+  }
+];
+
+/* ─────────────────────────────────────────
+   STATE
+───────────────────────────────────────── */
+let idx = -1;
+const ans = {};
+const multi = {};
+
+/* ─────────────────────────────────────────
+   START
+───────────────────────────────────────── */
+function start() {
+  document.getElementById('introScreen').style.display = 'none';
+  idx = 0;
+  render();
+}
+
+/* ─────────────────────────────────────────
+   RENDER
+───────────────────────────────────────── */
+function render() {
+  updateProg();
+  const c = document.getElementById('qContainer');
+  c.innerHTML = '';
+  const q = Qs[idx];
+  const sec = SECTIONS[q.section];
+
+  const wrap = document.createElement('div');
+  wrap.className = 'q-screen active';
+
+  // Section banner (only on first question of each new section)
+  let bannerHtml = '';
+  if (q.newSection) {
+    bannerHtml = `
+      <div class="section-banner ${sec.banner}">
+        <div class="sb-dot ${sec.dot}">${sec.icon}</div>
+        <div class="sb-text">
+          <div class="sb-label ${sec.slabel}">${sec.label}</div>
+          <div class="sb-desc">${sec.desc}</div>
+        </div>
+      </div>`;
+  }
+
+  // Question card
+  let innerHtml = '';
+
+  // header row
+  innerHtml += `
+    <div class="q-top">
+      <div class="q-num">Question ${idx + 1} of ${Qs.length}</div>
+      <div class="q-dim-tag ${sec.tag}">${sec.label}</div>
+    </div>
+    <div class="q-text">${q.text}</div>
+    <div class="q-why">
+      <div class="q-why-label">Why we're asking</div>
+      <div class="q-why-text">${q.why}</div>
+    </div>`;
+
+  // Input
+  if (q.type === 'contact') {
+    innerHtml += `<div>`;
+    q.fields.forEach(f => {
+      const v = ans[`c_${f.name}`] || '';
+      const label = f.name === 'email' ? 'Work email address' : f.label;
+      const hint  = f.name === 'email' ? ' <span class="field-hint">Please use your work email — we don\'t accept Gmail, Hotmail or similar</span>' : '';
+      innerHtml += `<div class="field-group"><label class="field-label">${label}${hint}</label><input type="${f.type}" id="f_${f.name}" placeholder="${f.placeholder}" value="${v}" autocomplete="${f.name === 'email' ? 'work email' : 'on'}" /></div>`;
+    });
+    innerHtml += `<div class="email-error" id="emailError">Please enter a work email address — we can't accept Gmail, Hotmail, Outlook or other personal email providers.</div>`;
+    innerHtml += `</div>`;
+
+  } else if (q.type === 'single') {
+    innerHtml += `<div class="options">`;
+    q.options.forEach((o, i) => {
+      const sel = ans[q.id] === i ? 'selected' : '';
+      innerHtml += `
+        <div class="opt ${sel}" onclick="pick('${q.id}',${i})" id="o_${q.id}_${i}">
+          <div class="opt-radio"></div>
+          <div class="opt-body">
+            <div class="opt-title">${o.title}</div>
+            ${o.desc ? `<div class="opt-desc">${o.desc}</div>` : ''}
+          </div>
+        </div>`;
+    });
+    innerHtml += `</div>`;
+
+  } else if (q.type === 'multi') {
+    if (!multi[q.id]) multi[q.id] = new Set();
+    innerHtml += `<div class="multi-hint">Select all that apply</div><div class="options">`;
+    q.options.forEach((o, i) => {
+      const sel = multi[q.id].has(i) ? 'selected' : '';
+      innerHtml += `
+        <div class="opt ${sel}" onclick="tog('${q.id}',${i})" id="m_${q.id}_${i}">
+          <div class="opt-check"></div>
+          <div class="opt-body">
+            <div class="opt-title">${o.title}</div>
+            ${o.desc ? `<div class="opt-desc">${o.desc}</div>` : ''}
+          </div>
+        </div>`;
+    });
+    innerHtml += `</div>`;
+
+  } else if (q.type === 'text') {
+    const v = ans[q.id] || '';
+    innerHtml += `<textarea id="ta_${q.id}" placeholder="${q.placeholder}" rows="5">${v}</textarea>`;
+  }
+
+  wrap.innerHTML = bannerHtml + `<div class="q-wrap">${innerHtml}</div>`;
+
+  // Nav
+  const nav = document.createElement('div');
+  nav.className = 'nav';
+  nav.innerHTML = `
+    <button class="btn-primary" onclick="next()">
+      ${idx < Qs.length - 1 ? 'Continue →' : 'Submit my diagnostic ✦'}
+    </button>
+    ${idx > 0 ? `<button class="btn-back" onclick="prev()">← Back</button>` : ''}`;
+  wrap.appendChild(nav);
+
+  c.appendChild(wrap);
+}
+
+/* ─────────────────────────────────────────
+   PERSONAL EMAIL BLOCKLIST
+───────────────────────────────────────── */
+const PERSONAL_DOMAINS = new Set([
+  'gmail.com','googlemail.com','hotmail.com','hotmail.co.uk','hotmail.fr',
+  'outlook.com','outlook.co.uk','live.com','live.co.uk','msn.com',
+  'yahoo.com','yahoo.co.uk','yahoo.fr','yahoo.de','ymail.com',
+  'icloud.com','me.com','mac.com','aol.com','aol.co.uk',
+  'protonmail.com','proton.me','pm.me','tutanota.com','tutamail.com',
+  'zoho.com','yandex.com','yandex.ru','mail.com','gmx.com','gmx.co.uk',
+  'btinternet.com','sky.com','talktalk.net','virginmedia.com',
+  'ntlworld.com','blueyonder.co.uk','tiscali.co.uk'
+]);
+
+function isPersonalEmail(email) {
+  const domain = email.trim().toLowerCase().split('@')[1] || '';
+  return PERSONAL_DOMAINS.has(domain);
+}
+
+function validateContact() {
+  const email = document.getElementById('f_email')?.value?.trim() || '';
+  const errorEl = document.getElementById('emailError');
+  if (!email) return true; // let normal required validation handle blank
+  if (isPersonalEmail(email)) {
+    if (errorEl) errorEl.classList.add('show');
+    document.getElementById('f_email').classList.add('input-error');
+    document.getElementById('f_email').focus();
+    return false;
+  }
+  if (errorEl) errorEl.classList.remove('show');
+  document.getElementById('f_email').classList.remove('input-error');
+  return true;
+}
+
+/* ─────────────────────────────────────────
+   INTERACTION
+───────────────────────────────────────── */
+function pick(id, i) {
+  ans[id] = i;
+  document.querySelectorAll(`[id^="o_${id}_"]`).forEach((el, j) => el.classList.toggle('selected', j === i));
+}
+
+function tog(id, i) {
+  if (!multi[id]) multi[id] = new Set();
+  const el = document.getElementById(`m_${id}_${i}`);
+  if (multi[id].has(i)) { multi[id].delete(i); el.classList.remove('selected'); }
+  else { multi[id].add(i); el.classList.add('selected'); }
+}
+
+function next() {
+  const q = Qs[idx];
+  if (q.type === 'contact') {
+    q.fields.forEach(f => { ans[`c_${f.name}`] = document.getElementById(`f_${f.name}`)?.value || ''; });
+    if (!validateContact()) return;
+  }
+  if (q.type === 'text') ans[q.id] = document.getElementById(`ta_${q.id}`)?.value || '';
+  if (idx < Qs.length - 1) { idx++; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else submit();
+}
+
+function prev() {
+  if (idx > 0) { idx--; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+function updateProg() {
+  const pct = idx < 0 ? 0 : ((idx + 1) / Qs.length) * 100;
+  document.getElementById('progBar').style.width = pct + '%';
+  document.getElementById('progText').textContent = idx < 0 ? 'Introduction' : `${idx + 1} / ${Qs.length}`;
+}
+
+/* ─────────────────────────────────────────
+   CONFIGURATION
+   ─────────────────────────────────────────
+   Replace the three values below with your EmailJS credentials.
+   Found at emailjs.com → Account / Services / Templates
+───────────────────────────────────────── */
+const EMAILJS_PUBLIC_KEY  = 'sBw-D-T4bdEVbemVu';
+const EMAILJS_SERVICE_ID  = 'service_fuiqawi';
+const EMAILJS_TEMPLATE_ID = 'template_3yg4bzt';
+const ANTHROPIC_KEY       = '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';
+
+/* ─────────────────────────────────────────
+   SUBMIT
+───────────────────────────────────────── */
+function submit() {
+  document.getElementById('qContainer').innerHTML = '';
+  document.getElementById('tyScreen').classList.add('active');
+  document.getElementById('progBar').style.width = '100%';
+  document.getElementById('progText').textContent = 'Complete';
+  document.getElementById('advToggle').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+  buildAdvisor();
+  sendEmailNotification();
+}
+
+async function sendEmailNotification() {
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') return;
+
+  const name    = ans['c_name']    || 'Unknown';
+  const company = ans['c_company'] || 'Unknown';
+  const email   = ans['c_email']   || 'Unknown';
+  const role    = ans['c_role']    || 'Unknown';
+
+  let responses = `NEW AI READINESS DIAGNOSTIC\n${'─'.repeat(40)}\n`;
+  responses += `Name:    ${name}\nRole:    ${role}\nCompany: ${company}\nEmail:   ${email}\n${'─'.repeat(40)}\n\n`;
+
+  Qs.forEach(q => {
+    if (q.type === 'contact') return;
+    responses += `${q.text}\n`;
+    if (q.type === 'single' && ans[q.id] !== undefined)
+      responses += `Answer: ${q.options[ans[q.id]].title}\n\n`;
+    else if (q.type === 'multi' && multi[q.id]) {
+      const sel = [...multi[q.id]].map(i => q.options[i].title);
+      responses += `Answer: ${sel.length ? sel.join(', ') : 'None selected'}\n\n`;
+    } else if (q.type === 'text') {
+      responses += `Answer: ${ans[q.id] || '(left blank)'}\n\n`;
+    }
+  });
+
+  try {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      respondent: name,
+      company:    company,
+      email:      email,
+      role:       role,
+      responses:  responses
+    });
+    document.getElementById('submitStatus').innerHTML = '✓ Responses received — you\'ll hear from us soon.';
+    document.getElementById('submitStatus').className = 'submit-status success';
+    console.log('Diagnostic submitted successfully');
+  } catch (err) {
+    document.getElementById('submitStatus').innerHTML = '⚠ Submission error: ' + err.text + ' (status: ' + err.status + ')';
+    document.getElementById('submitStatus').className = 'submit-status error';
+    console.error('EmailJS error:', err);
+  }
+}
+
+/* ─────────────────────────────────────────
+   ADVISOR PANEL
+───────────────────────────────────────── */
+function buildAdvisor() {
+  const name  = ans['c_name']    || 'Unknown';
+  const co    = ans['c_company'] || 'Unknown';
+  const email = ans['c_email']   || 'Unknown';
+  const role  = ans['c_role']    || 'Unknown';
+
+  document.getElementById('advRespondent').textContent = `${name} · ${role}\n${co}\n${email}`;
+  document.getElementById('advRespondent').classList.remove('placeholder');
+
+  let summary = '';
+  Qs.forEach(q => {
+    if (q.type === 'contact') return;
+    summary += `[${SECTIONS[q.section].label}] ${q.text}\n`;
+    if (q.type === 'single' && ans[q.id] !== undefined)
+      summary += `→ ${q.options[ans[q.id]].title}\n`;
+    else if (q.type === 'multi' && multi[q.id])
+      summary += `→ ${[...multi[q.id]].map(i => q.options[i].title).join(', ') || 'None selected'}\n`;
+    else if (q.type === 'text')
+      summary += `→ ${ans[q.id] || '(left blank)'}\n`;
+    summary += '\n';
+  });
+
+  const rawEl = document.getElementById('advRaw');
+  rawEl.textContent = summary.trim();
+  rawEl.classList.remove('placeholder');
+
+  generateDiagnosis(name, co, role, summary);
+}
+
+async function generateDiagnosis(name, co, role, summary) {
+  document.getElementById('advWaiting').classList.add('show');
+  const el = document.getElementById('advDiagnosis');
+
+  const prompt = `You are a senior AI strategy consultant preparing a detailed advisor briefing note before responding to a prospective client who has just completed an AI readiness diagnostic.
+
+RESPONDENT: ${name}, ${role} at ${co}
+
+THEIR RESPONSES:
+${summary}
+
+Write a thorough, specific, actionable advisor briefing using this exact structure:
+
+## MATURITY TIER
+Assign one of: Unaware / Exploring / Developing / Scaling / Leading
+2–3 sentences explaining exactly why, referencing specific things they said.
+
+## OVERALL READINESS SCORE: X/10
+One clear sentence of rationale.
+
+## DIMENSION SCORES
+Score each dimension out of 5 based on their actual answers. Add one sentence of honest commentary per dimension.
+- Strategy & Leadership: X/5 — [comment]
+- Data & Infrastructure: X/5 — [comment]
+- People & Skills: X/5 — [comment]
+- Tools & Technology: X/5 — [comment]
+- Process & Operations: X/5 — [comment]
+- Culture & Risk: X/5 — [comment]
+
+## KEY OBSERVATIONS
+4–5 specific, honest observations. Reference what they actually said. Avoid generalities — this should feel like you've genuinely read their responses.
+
+## RECOMMENDED ROADMAP
+
+**Phase 1 — Quick Wins (0–90 days)**
+3–4 concrete actions. Be specific about which tools, who should own each one, and what a realistic outcome looks like.
+
+**Phase 2 — Build Capability (3–9 months)**
+3–4 actions focused on building the foundations and scaling what's worked.
+
+**Phase 3 — Embed & Scale (9–18 months)**
+3 actions focused on making AI a lasting competitive advantage for this specific business.
+
+## WATCH POINTS
+2–3 specific risks or cautions based on their blockers, leadership attitude, sector context or concerns raised.
+
+## SUGGESTED OPENING FOR YOUR REPLY EMAIL
+2–3 sentences the advisor can use to open their response — warm, personal, referencing something specific from the diagnostic. Ready to use as-is or adapt.
+
+Tone throughout: direct, warm, zero jargon. This is a private briefing note — write as if you're a knowledgeable colleague who has just reviewed the form and wants to give the advisor a genuinely useful steer before they reply.`;
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(ANTHROPIC_KEY !== 'YOUR_ANTHROPIC_API_KEY' && { "x-api-key": ANTHROPIC_KEY }),
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.map(b => b.text || '').join('') || 'Unable to generate diagnosis.';
+    el.textContent = text;
+    el.classList.remove('placeholder');
+    document.getElementById('advWaiting').classList.remove('show');
+  } catch (err) {
+    el.textContent = 'Error generating diagnosis. Please check your connection and try again.';
+    el.classList.remove('placeholder');
+    document.getElementById('advWaiting').classList.remove('show');
+  }
+}
+
+function openAdv()  { document.getElementById('advOverlay').classList.add('open'); }
+function closeAdv() { document.getElementById('advOverlay').classList.remove('open'); }
+
+function copyDiag() {
+  navigator.clipboard.writeText(document.getElementById('advDiagnosis').textContent).then(() => {
+    const b = document.querySelector('.copy-btn');
+    b.textContent = '✓ Copied';
+    setTimeout(() => b.textContent = 'Copy to clipboard', 2000);
+  });
+}
+</script>
+</body>
+</html>
