@@ -58,7 +58,7 @@ export default async (req) => {
       'was not sent. Set the RESEND_API_KEY environment variable to enable email alerts.',
     );
     console.log('Submission received:', { formName, data: fieldSummary });
-    return new Response('OK (email skipped — RESEND_API_KEY not configured)');
+    return new Response('OK (email skipped -- RESEND_API_KEY not configured)');
   }
 
   try {

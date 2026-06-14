@@ -1,7 +1,7 @@
-// AI Readiness Diagnostic — server-side proxy.
+// AI Readiness Diagnostic: server-side proxy.
 // The Anthropic key is read from the ANTHROPIC_API_KEY environment variable, so it
 // never appears in the browser. The prompt is built here, which means this endpoint
-// can only produce the diagnostic briefing — it can't be used as a general LLM proxy.
+// can only produce the diagnostic briefing; it can't be used as a general LLM proxy.
 
 const MODEL = "claude-sonnet-4-6";
 const MAX_TOKENS = 1000;
@@ -18,41 +18,41 @@ Write a thorough, specific, actionable advisor briefing using this exact structu
 
 ## MATURITY TIER
 Assign one of: Unaware / Exploring / Developing / Scaling / Leading
-2–3 sentences explaining exactly why, referencing specific things they said.
+2-3 sentences explaining exactly why, referencing specific things they said.
 
 ## OVERALL READINESS SCORE: X/10
 One clear sentence of rationale.
 
 ## DIMENSION SCORES
 Score each dimension out of 5 based on their actual answers. Add one sentence of honest commentary per dimension.
-- Strategy & Leadership: X/5 — [comment]
-- Data & Infrastructure: X/5 — [comment]
-- People & Skills: X/5 — [comment]
-- Tools & Technology: X/5 — [comment]
-- Process & Operations: X/5 — [comment]
-- Culture & Risk: X/5 — [comment]
+- Strategy & Leadership: X/5: [comment]
+- Data & Infrastructure: X/5: [comment]
+- People & Skills: X/5: [comment]
+- Tools & Technology: X/5: [comment]
+- Process & Operations: X/5: [comment]
+- Culture & Risk: X/5: [comment]
 
 ## KEY OBSERVATIONS
-4–5 specific, honest observations. Reference what they actually said. Avoid generalities — this should feel like you've genuinely read their responses.
+4-5 specific, honest observations. Reference what they actually said. Avoid generalities; this should feel like you've genuinely read their responses.
 
 ## RECOMMENDED ROADMAP
 
-**Phase 1 — Quick Wins (0–90 days)**
-3–4 concrete actions. Be specific about which tools, who should own each one, and what a realistic outcome looks like.
+**Phase 1: Quick Wins (0-90 days)**
+3-4 concrete actions. Be specific about which tools, who should own each one, and what a realistic outcome looks like.
 
-**Phase 2 — Build Capability (3–9 months)**
-3–4 actions focused on building the foundations and scaling what's worked.
+**Phase 2: Build Capability (3-9 months)**
+3-4 actions focused on building the foundations and scaling what's worked.
 
-**Phase 3 — Embed & Scale (9–18 months)**
+**Phase 3: Embed & Scale (9-18 months)**
 3 actions focused on making AI a lasting competitive advantage for this specific business.
 
 ## WATCH POINTS
-2–3 specific risks or cautions based on their blockers, leadership attitude, sector context or concerns raised.
+2-3 specific risks or cautions based on their blockers, leadership attitude, sector context or concerns raised.
 
 ## SUGGESTED OPENING FOR YOUR REPLY EMAIL
-2–3 sentences the advisor can use to open their response — warm, personal, referencing something specific from the diagnostic. Ready to use as-is or adapt.
+2-3 sentences the advisor can use to open their response: warm, personal, referencing something specific from the diagnostic. Ready to use as-is or adapt.
 
-Tone throughout: direct, warm, zero jargon. This is a private briefing note — write as if you're a knowledgeable colleague who has just reviewed the form and wants to give the advisor a genuinely useful steer before they reply.`;
+Tone throughout: direct, warm, zero jargon. This is a private briefing note. Write as if you're a knowledgeable colleague who has just reviewed the form and wants to give the advisor a genuinely useful steer before they reply.`;
 }
 
 export const handler = async (event) => {
