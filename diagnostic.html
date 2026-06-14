@@ -831,7 +831,7 @@ input::placeholder { color: var(--light); }
     </div>
     <div class="intro-eyebrow">Confidential · 15 minutes · No obligation</div>
     <h1 class="intro-h1">How <em>AI-ready</em> is<br>your business, really?</h1>
-    <p class="intro-lead">Most businesses know AI matters. Far fewer know where they actually stand — or what a sensible next step looks like. This diagnostic gives you an honest, personalised picture and a practical roadmap to move forward.</p>
+    <p class="intro-lead">Most businesses know AI matters. Far fewer know where they actually stand, or what a sensible next step looks like. This diagnostic gives you an honest, personalised picture and a practical roadmap to move forward.</p>
 
     <div class="intro-grid">
       <div class="intro-tile">
@@ -844,7 +844,7 @@ input::placeholder { color: var(--light); }
       </div>
       <div class="intro-tile">
         <div class="tile-icon ic-terra">✓</div>
-        <div class="tile-copy"><strong>Expert Review</strong><span>Reviewed and written by a real advisor — not auto-generated</span></div>
+        <div class="tile-copy"><strong>Expert Review</strong><span>Reviewed and written by a real advisor, not auto-generated</span></div>
       </div>
       <div class="intro-tile">
         <div class="tile-icon ic-sand">◎</div>
@@ -910,7 +910,7 @@ input::placeholder { color: var(--light); }
     <div class="adv-head">
       <div>
         <h2>Advisor Review Panel</h2>
-        <p>Private — not visible to the respondent</p>
+        <p>Private, not visible to the respondent</p>
       </div>
       <button class="adv-x" onclick="closeAdv()">✕</button>
     </div>
@@ -918,7 +918,7 @@ input::placeholder { color: var(--light); }
 
       <div>
         <div class="adv-section-label asl-forest">Respondent</div>
-        <div class="adv-box" id="advRespondent">—</div>
+        <div class="adv-box" id="advRespondent">-</div>
       </div>
 
       <div>
@@ -928,7 +928,7 @@ input::placeholder { color: var(--light); }
 
       <div class="waiting" id="advWaiting">
         <div class="spinner"></div>
-        Generating your diagnosis — usually takes around 20 seconds…
+        Generating your diagnosis, usually takes around 20 seconds…
       </div>
 
       <div>
@@ -948,7 +948,7 @@ input::placeholder { color: var(--light); }
 const SECTIONS = {
   about:    { label:"About Your Business",   dot:"sd-about",    banner:"sb-about",    tag:"dt-about",    slabel:"sl-about",   icon:"🏢", desc:"Context about your business so every recommendation is relevant to your situation." },
   strategy: { label:"Strategy & Leadership", dot:"sd-strategy", banner:"sb-strategy", tag:"dt-strategy", slabel:"sl-strategy",icon:"🎯", desc:"Whether AI is on the agenda, who owns it, and whether there's investment behind the intent." },
-  data:     { label:"Data & Infrastructure", dot:"sd-data",     banner:"sb-data",     tag:"dt-data",     slabel:"sl-data",    icon:"🗄️", desc:"The state of your data and systems — the foundation everything else depends on." },
+  data:     { label:"Data & Infrastructure", dot:"sd-data",     banner:"sb-data",     tag:"dt-data",     slabel:"sl-data",    icon:"🗄️", desc:"The state of your data and systems: the foundation everything else depends on." },
   people:   { label:"People & Skills",        dot:"sd-people",   banner:"sb-people",   tag:"dt-people",   slabel:"sl-people",  icon:"👥", desc:"AI literacy, training, and how your team responds to change." },
   tools:    { label:"Tools & Technology",     dot:"sd-tools",    banner:"sb-tools",    tag:"dt-tools",    slabel:"sl-tools",   icon:"🔧", desc:"What AI tools you're using today and how deeply they're embedded in your work." },
   process:  { label:"Process & Operations",  dot:"sd-process",  banner:"sb-process",  tag:"dt-process",  slabel:"sl-process", icon:"⚙️", desc:"How automated your operations are and where AI can realistically add the most value." },
@@ -987,21 +987,21 @@ const Qs = [
     text:"How many people work in your business?",
     why:"Team size affects what's realistically achievable, how fast you can move, and what change management looks like.",
     options:[
-      {title:"Just me — solo or founder-led",  desc:"Working alone, or with occasional freelancers"},
-      {title:"2–10 people",                    desc:"Small, close-knit team"},
-      {title:"11–50 people",                   desc:"Growing SME with defined departments or functions"},
-      {title:"51–200 people",                  desc:"Established mid-market business"},
+      {title:"Just me, solo or founder-led",  desc:"Working alone, or with occasional freelancers"},
+      {title:"2-10 people",                    desc:"Small, close-knit team"},
+      {title:"11-50 people",                   desc:"Growing SME with defined departments or functions"},
+      {title:"51-200 people",                  desc:"Established mid-market business"},
       {title:"200+ people",                    desc:"Larger organisation with multiple teams or sites"}
     ]
   },
   { id:"revenue", section:"about", type:"single", newSection:false,
     text:"Roughly what's your annual revenue or budget scale?",
-    why:"This helps us calibrate realistic investment levels and tool recommendations — no ballpark means generic advice.",
+    why:"This helps us calibrate realistic investment levels and tool recommendations, no ballpark means generic advice.",
     options:[
       {title:"Pre-revenue or early stage",     desc:""},
       {title:"Under £1m / $1m",               desc:""},
-      {title:"£1m – £5m / $1m – $5m",        desc:""},
-      {title:"£5m – £25m / $5m – $25m",      desc:""},
+      {title:"£1m - £5m / $1m - $5m",        desc:""},
+      {title:"£5m - £25m / $5m - $25m",      desc:""},
       {title:"£25m+ / $25m+",                 desc:""},
       {title:"Prefer not to say",              desc:""}
     ]
@@ -1017,10 +1017,10 @@ const Qs = [
     text:"Does your business have a defined AI strategy or vision?",
     why:"We're not asking whether you use AI tools. We're asking whether there's intentional thinking about where AI fits into your overall direction and goals.",
     options:[
-      {title:"No — AI isn't on our strategic agenda yet",          desc:"It hasn't come up at leadership level in any meaningful way"},
+      {title:"No, AI isn't on our strategic agenda yet",          desc:"It hasn't come up at leadership level in any meaningful way"},
       {title:"It's come up, but nothing has been formalised",      desc:"General awareness that it matters, but no documented direction"},
       {title:"We have a rough sense of direction but nothing written down", desc:"Some internal consensus, but not committed to paper"},
-      {title:"We have a documented AI strategy that's in progress", desc:"Written, being developed — not yet fully adopted or acted on"},
+      {title:"We have a documented AI strategy that's in progress", desc:"Written, being developed, not yet fully adopted or acted on"},
       {title:"We have a clear, active AI strategy",                desc:"Leadership-aligned, with defined goals and clear accountability"}
     ]
   },
@@ -1031,7 +1031,7 @@ const Qs = [
       {title:"Not that we've noticed",                             desc:"Competitive pressure doesn't feel AI-driven right now"},
       {title:"Some pressure, but it's not acute",                  desc:"Awareness of faster competitors, but not losing sleep over it"},
       {title:"It's a growing concern",                             desc:"We're seeing the gap widen and it's starting to affect decisions"},
-      {title:"Yes — it's costing us business",                     desc:"We've lost clients, margin or speed to more tech-enabled rivals"},
+      {title:"Yes, it's costing us business",                     desc:"We've lost clients, margin or speed to more tech-enabled rivals"},
       {title:"It's our single biggest strategic risk",             desc:"Falling behind on this keeps leadership up at night"}
     ]
   },
@@ -1040,12 +1040,12 @@ const Qs = [
     why:"Knowing your goals up front means the roadmap we build is pointed in the right direction from the start, not just a generic list of AI things you could theoretically do.",
     options:[
       {title:"Save time and reduce manual workload",       desc:"Free up the team from repetitive tasks so they can focus on higher-value work"},
-      {title:"Improve quality and consistency of output",  desc:"Better, more reliable work — from content to reporting to customer communication"},
+      {title:"Improve quality and consistency of output",  desc:"Better, more reliable work, from content to reporting to customer communication"},
       {title:"Grow revenue or win more business",          desc:"Use AI to improve sales, marketing, or product"},
       {title:"Reduce costs",                              desc:"Do more with the same team, or find efficiencies across operations"},
       {title:"Improve customer experience",               desc:"Faster responses, better personalisation, smarter service"},
-      {title:"Stay competitive",                          desc:"Keep pace with — or get ahead of — what competitors are doing with AI"},
-      {title:"Understand what's possible",                desc:"Not sure yet — want an honest picture before committing to anything"},
+      {title:"Stay competitive",                          desc:"Keep pace with, or get ahead of, what competitors are doing with AI"},
+      {title:"Understand what's possible",                desc:"Not sure yet, want an honest picture before committing to anything"},
       {title:"Something specific not listed here",        desc:"Tell us more in the open questions at the end"}
     ]
   },
@@ -1054,7 +1054,7 @@ const Qs = [
     why:"Accountability is one of the strongest predictors of whether AI initiatives actually happen, or quietly die on a slide somewhere.",
     options:[
       {title:"Nobody owns it at the moment",                   desc:"It hasn't been assigned to anyone"},
-      {title:"Whoever happens to be most interested",          desc:"Informal, enthusiasm-driven — no formal accountability"},
+      {title:"Whoever happens to be most interested",          desc:"Informal, enthusiasm-driven, no formal accountability"},
       {title:"A senior leader, alongside other responsibilities", desc:"It's on someone's plate but not their primary focus"},
       {title:"A dedicated person or small team",               desc:"An AI lead, Head of Digital, or equivalent role"},
       {title:"It's embedded at board or C-suite level",        desc:"Part of the core leadership agenda, not a side project"}
@@ -1065,8 +1065,8 @@ const Qs = [
     why:"Strategy without budget rarely moves. How AI is funded, or not, tells us a lot about the seriousness of the intent.",
     options:[
       {title:"No budget allocated to AI at all",                    desc:"It's not a line item anywhere"},
-      {title:"Free tools only — no formal spend",                   desc:"ChatGPT free tier, no investment beyond time"},
-      {title:"Informal subscriptions — individuals paying themselves", desc:"A few people have personal Pro accounts, but it's ad hoc"},
+      {title:"Free tools only, no formal spend",                   desc:"ChatGPT free tier, no investment beyond time"},
+      {title:"Informal subscriptions, individuals paying themselves", desc:"A few people have personal Pro accounts, but it's ad hoc"},
       {title:"AI tools are a planned budget line, however small",    desc:"Some formal spend, even if modest"},
       {title:"We have meaningful investment allocated",             desc:"Covering tools, training, external support, or dedicated headcount"}
     ]
@@ -1079,9 +1079,9 @@ const Qs = [
     options:[
       {title:"We don't have structured data to speak of",           desc:"Most information lives in people's heads, emails or spreadsheets with no consistency"},
       {title:"Data exists but it's scattered and unreliable",       desc:"Multiple systems that don't talk to each other, lots of gaps and inconsistencies"},
-      {title:"Patchy — well-organised in some areas, not in others", desc:"Good pockets of clean data, but no consistent standard across the business"},
+      {title:"Patchy, well-organised in some areas, not in others", desc:"Good pockets of clean data, but no consistent standard across the business"},
       {title:"Most of our key data is structured and accessible",   desc:"Reasonably reliable across core functions, though integration could be better"},
-      {title:"Clean, well-maintained and consistently structured",  desc:"A solid foundation — reliable enough to build on with confidence"}
+      {title:"Clean, well-maintained and consistently structured",  desc:"A solid foundation, reliable enough to build on with confidence"}
     ]
   },
   { id:"data_systems", section:"data", type:"multi", newSection:false,
@@ -1103,46 +1103,46 @@ const Qs = [
     text:"Where does your customer data actually live?",
     why:"Customer data is typically the most valuable input for AI in an SME, but only if it's in one place and consistently maintained. Fragmented customer records are one of the most common blockers we see.",
     options:[
-      {title:"Mostly in people's heads, emails and inboxes",        desc:"No single system — knowledge walks out the door when people leave"},
+      {title:"Mostly in people's heads, emails and inboxes",        desc:"No single system, knowledge walks out the door when people leave"},
       {title:"Spread across multiple spreadsheets",                 desc:"Data exists, but it's inconsistent, duplicated and hard to act on"},
-      {title:"In a CRM, but it's incomplete or poorly maintained",  desc:"The system is there but the data hygiene isn't — gaps, duplicates, old records"},
+      {title:"In a CRM, but it's incomplete or poorly maintained",  desc:"The system is there but the data hygiene isn't, gaps, duplicates, old records"},
       {title:"In a CRM that's reasonably well maintained",          desc:"Reliable enough for most purposes, could be cleaner"},
-      {title:"In a single, clean, consistently updated system",     desc:"A solid customer data foundation — well maintained and trusted by the team"}
+      {title:"In a single, clean, consistently updated system",     desc:"A solid customer data foundation, well maintained and trusted by the team"}
     ]
   },
   { id:"data_capture", section:"data", type:"multi", newSection:false,
     text:"Which of these data problems do you recognise in your business?",
     why:"These are the most common data readiness issues we find in SMEs. Being honest about them now means the roadmap addresses the real foundations, not just the exciting stuff on top.",
     options:[
-      {title:"Customer records are duplicated or inconsistent",      desc:"Same customer, multiple records — or records that contradict each other"},
+      {title:"Customer records are duplicated or inconsistent",      desc:"Same customer, multiple records, or records that contradict each other"},
       {title:"Financial data requires manual reconciliation",        desc:"Someone has to bridge the gap between systems by hand"},
       {title:"Website and marketing analytics aren't properly set up", desc:"You're flying blind on what's working and what isn't"},
-      {title:"Product or service data isn't consistently maintained", desc:"Descriptions, pricing, specs — held differently across different places"},
+      {title:"Product or service data isn't consistently maintained", desc:"Descriptions, pricing, specs, held differently across different places"},
       {title:"Operational data isn't being captured at all",         desc:"Key processes happen but nothing is recorded or measured"},
       {title:"Data sits in formats AI can't easily read",            desc:"PDFs, scanned documents, handwritten notes, legacy file formats"},
-      {title:"None of these — our data is in good shape",           desc:""}
+      {title:"None of these, our data is in good shape",           desc:""}
     ]
   },
   { id:"system_integration", section:"data", type:"single", newSection:false,
     text:"How well do your existing software systems connect and share data with each other?",
-    why:"AI works best when it can pull from and push to the tools your business already uses. Disconnected systems don't just create extra work — they create a ceiling on what AI can actually do for you.",
+    why:"AI works best when it can pull from and push to the tools your business already uses. Disconnected systems don't just create extra work, they create a ceiling on what AI can actually do for you.",
     options:[
-      {title:"They don't — each system is completely siloed",        desc:"Data has to be manually copied or re-entered between tools"},
-      {title:"Minimal connection — a couple of basic integrations",  desc:"Some data flows automatically, most doesn't"},
-      {title:"Partial — key systems are connected, others aren't",   desc:"The core is reasonably joined up, gaps exist at the edges"},
+      {title:"They don't, each system is completely siloed",        desc:"Data has to be manually copied or re-entered between tools"},
+      {title:"Minimal connection, a couple of basic integrations",  desc:"Some data flows automatically, most doesn't"},
+      {title:"Partial, key systems are connected, others aren't",   desc:"The core is reasonably joined up, gaps exist at the edges"},
       {title:"Most systems share data reasonably well",              desc:"Solid integration across the main tools, minor gaps"},
-      {title:"Fully connected — our stack works as one ecosystem",   desc:"Data flows freely, automations run across systems, minimal manual bridging"}
+      {title:"Fully connected, our stack works as one ecosystem",   desc:"Data flows freely, automations run across systems, minimal manual bridging"}
     ]
   },
   { id:"tech_type", section:"data", type:"single", newSection:false,
     text:"How would you describe your current software setup overall?",
-    why:"The type of software you use has a big impact on what's possible and how quickly. Cloud-based tools with open APIs can be connected to AI in hours — legacy desktop software can take months.",
+    why:"The type of software you use has a big impact on what's possible and how quickly. Cloud-based tools with open APIs can be connected to AI in hours, legacy desktop software can take months.",
     options:[
       {title:"Mostly legacy desktop software",                       desc:"Older installed programs that don't connect easily to modern tools"},
-      {title:"A mix of old and new — some legacy, some cloud",       desc:"Transition is happening but it's not complete"},
+      {title:"A mix of old and new, some legacy, some cloud",       desc:"Transition is happening but it's not complete"},
       {title:"Mostly cloud-based, but not well integrated",          desc:"Modern tools, but they're not talking to each other effectively"},
-      {title:"Cloud-based and reasonably well connected",            desc:"Good foundation — most tools have APIs and some integration already exists"},
-      {title:"Cloud-native, well integrated, with automation in place", desc:"The infrastructure is ready — AI can be layered on with relatively low friction"}
+      {title:"Cloud-based and reasonably well connected",            desc:"Good foundation, most tools have APIs and some integration already exists"},
+      {title:"Cloud-native, well integrated, with automation in place", desc:"The infrastructure is ready, AI can be layered on with relatively low friction"}
     ]
   },
 
@@ -1151,19 +1151,19 @@ const Qs = [
     text:"How would you assess AI literacy across your team as a whole?",
     why:"We're not asking about technical skills. We mean general understanding of what AI can do, and confidence to experiment with it day-to-day.",
     options:[
-      {title:"Very low — most people have little or no exposure", desc:"AI feels abstract or irrelevant to most of the team"},
+      {title:"Very low, most people have little or no exposure", desc:"AI feels abstract or irrelevant to most of the team"},
       {title:"One or two curious people, but no general awareness", desc:"AI is seen as someone else's responsibility"},
       {title:"Growing awareness, but mixed confidence",            desc:"Some experimenting quietly, others disengaged or sceptical"},
-      {title:"Most of the team understands AI's potential and uses basic tools", desc:"A reasonable baseline — people are engaged, not just aware"},
+      {title:"Most of the team understands AI's potential and uses basic tools", desc:"A reasonable baseline, people are engaged, not just aware"},
       {title:"High literacy across the business",                  desc:"The team actively explores and applies AI tools in their roles"}
     ]
   },
   { id:"training", section:"people", type:"single", newSection:false,
     text:"Has your business invested in any AI training or upskilling?",
-    why:"This can be formal or informal — online courses, workshops, internal demos, or simply giving people dedicated time to explore. What matters is whether it's been deliberate.",
+    why:"This can be formal or informal, online courses, workshops, internal demos, or simply giving people dedicated time to explore. What matters is whether it's been deliberate.",
     options:[
       {title:"No investment in training at all",                       desc:"Nothing has been organised or encouraged"},
-      {title:"People have self-taught entirely in their own time",     desc:"No company-led effort — it's been left to individuals"},
+      {title:"People have self-taught entirely in their own time",     desc:"No company-led effort, it's been left to individuals"},
       {title:"We've circulated some articles or resources informally", desc:"Awareness without structure"},
       {title:"We've run at least one structured training session",     desc:"A workshop, demo, or formal learning session has taken place"},
       {title:"AI upskilling is an ongoing part of how we develop people", desc:"Built into L&D, not a one-off"}
@@ -1173,11 +1173,11 @@ const Qs = [
     text:"How does your team generally respond to new technology or ways of working?",
     why:"AI adoption requires people to change how they work. Your organisation's baseline adaptability is one of the biggest factors in how fast, and how smoothly, this goes.",
     options:[
-      {title:"Strong resistance — change is usually hard here",    desc:"New tools or processes are met with reluctance or anxiety"},
-      {title:"Mixed — some people embrace it, others dig in",      desc:"The response depends a lot on who's involved"},
+      {title:"Strong resistance, change is usually hard here",    desc:"New tools or processes are met with reluctance or anxiety"},
+      {title:"Mixed, some people embrace it, others dig in",      desc:"The response depends a lot on who's involved"},
       {title:"Generally accepting when the case is made well",     desc:"People come around once they understand the benefit"},
-      {title:"Mostly open — we have a reasonably adaptable culture", desc:"New ways of working are typically adopted without too much friction"},
-      {title:"Enthusiastic — we actively seek out better approaches", desc:"Change is seen as exciting, not threatening"}
+      {title:"Mostly open, we have a reasonably adaptable culture", desc:"New ways of working are typically adopted without too much friction"},
+      {title:"Enthusiastic, we actively seek out better approaches", desc:"Change is seen as exciting, not threatening"}
     ]
   },
 
@@ -1186,14 +1186,14 @@ const Qs = [
     text:"Which AI tools or capabilities is your team currently using?",
     why:"Tick everything in active use, even if it's just one or two people using something occasionally. This gives us a realistic baseline to build from.",
     options:[
-      {title:"General AI assistants",                  desc:"ChatGPT, Claude, Gemini — for writing, research, analysis"},
+      {title:"General AI assistants",                  desc:"ChatGPT, Claude, Gemini, for writing, research, analysis"},
       {title:"Microsoft Copilot or Google Gemini for Work", desc:"AI embedded directly in Office 365 or Google Workspace"},
       {title:"AI image or video generation",           desc:"Midjourney, DALL-E, Sora, Runway, Adobe Firefly"},
       {title:"AI coding tools",                        desc:"GitHub Copilot, Cursor, Replit, or similar"},
       {title:"AI-powered customer chatbot or support tool", desc:"Live on your website or inside your product"},
       {title:"AI for marketing or content at scale",   desc:"Jasper, Copy.ai, Pencil, AdCreative, Canva AI"},
       {title:"AI analytics, forecasting or data tools", desc:"Tools that use AI to surface insights from your data"},
-      {title:"Automation platforms with AI steps",     desc:"Zapier, Make (Integromat), n8n — with AI-powered actions"},
+      {title:"Automation platforms with AI steps",     desc:"Zapier, Make (Integromat), n8n, with AI-powered actions"},
       {title:"None in active use yet",                 desc:""}
     ]
   },
@@ -1202,29 +1202,29 @@ const Qs = [
     why:"There's a significant difference between 'someone opens ChatGPT occasionally' and AI being genuinely woven into how the business operates. Where would you honestly place yourself?",
     options:[
       {title:"We don't really use AI tools in our day-to-day",  desc:"Maybe a one-off experiment, but nothing consistent"},
-      {title:"Occasional use — a handful of times per week",    desc:"It's more experiment than habit at this stage"},
+      {title:"Occasional use, a handful of times per week",    desc:"It's more experiment than habit at this stage"},
       {title:"Regular use by some people for specific tasks",   desc:"Genuinely useful in certain areas, but not transformative yet"},
       {title:"Multiple people rely on AI tools as part of their routine", desc:"Measurable time saving and productivity impact"},
-      {title:"AI is embedded in our core workflows",            desc:"It would be hard to imagine going back — it's part of how we work"}
+      {title:"AI is embedded in our core workflows",            desc:"It would be hard to imagine going back, it's part of how we work"}
     ]
   },
   { id:"dept_ai_apps", section:"tools", type:"text", newSection:false,
     text:"What AI applications are you currently using across the company or within specific departments?",
-    why:"We're looking for anything more specific than the general tools above — software with AI features built in, departmental tools with AI modules, or bespoke applications your team uses in particular functions. Name them if you can.",
+    why:"We're looking for anything more specific than the general tools above, software with AI features built in, departmental tools with AI modules, or bespoke applications your team uses in particular functions. Name them if you can.",
     placeholder:"e.g. Our finance team uses Xero's AI categorisation. Sales uses Gong for call analysis. Marketing uses HubSpot's AI content tools. Operations has nothing yet..."
   },
   { id:"shadow_ai", section:"tools", type:"text", newSection:false,
     text:"What unofficial AI tools are your team members quietly using to make their daily tasks more bearable?",
-    why:"Shadow AI is more common than most leaders realise, and it tells us a lot about where the real friction is in your business. There's no wrong answer here — this is useful intelligence, not a compliance check.",
+    why:"Shadow AI is more common than most leaders realise, and it tells us a lot about where the real friction is in your business. There's no wrong answer here, this is useful intelligence, not a compliance check.",
     placeholder:"e.g. Several people use ChatGPT for first drafts before putting things through the official system. Someone in accounts uses an AI tool to summarise long email threads. A few in the team use Grammarly or Notion AI without it being official policy..."
   },
 
   // PROCESS
   { id:"automation", section:"process", type:"single", newSection:true,
     text:"How automated are your business operations and workflows right now?",
-    why:"Not AI specifically — any kind of systematic automation. This tells us how ready the ground is for AI-powered improvements, and where the quick wins are most likely to be.",
+    why:"Not AI specifically, any kind of systematic automation. This tells us how ready the ground is for AI-powered improvements, and where the quick wins are most likely to be.",
     options:[
-      {title:"Very manual — most things are done by hand",           desc:"Heavy reliance on email, spreadsheets and individual effort to keep things moving"},
+      {title:"Very manual, most things are done by hand",           desc:"Heavy reliance on email, spreadsheets and individual effort to keep things moving"},
       {title:"Some basic automation exists",                         desc:"e.g. email sequences, scheduled reports, simple recurring tasks"},
       {title:"Moderate automation across a few functions",           desc:"Meaningful time savings in places, gaps in others"},
       {title:"Well-automated in most areas with some manual gaps",   desc:"Routine tasks are largely handled by systems"},
@@ -1250,23 +1250,23 @@ const Qs = [
     why:"Pick everything that's genuinely true. Knowing the real blockers is the only way to give you advice that will actually move things forward.",
     options:[
       {title:"We genuinely don't know where to start",          desc:"The landscape is noisy, confusing and hard to cut through"},
-      {title:"Cost — the investment is hard to justify",        desc:"ROI isn't clear enough to unlock budget or leadership support"},
+      {title:"Cost, the investment is hard to justify",        desc:"ROI isn't clear enough to unlock budget or leadership support"},
       {title:"We don't have the skills to implement it",        desc:"No one with the confidence or expertise to lead it properly"},
       {title:"Data privacy and security concerns",             desc:"Uncertainty about what's safe or appropriate to share with AI systems"},
       {title:"Leadership buy-in isn't there yet",              desc:"Not seen as a priority, or there's active scepticism at the top"},
-      {title:"We're already moving — just not fast enough",    desc:"The intent is there, execution is the problem"}
+      {title:"We're already moving, just not fast enough",    desc:"The intent is there, execution is the problem"}
     ]
   },
 
   // CULTURE
   { id:"leadership_attitude", section:"culture", type:"single", newSection:true,
     text:"How does your leadership team genuinely feel about AI?",
-    why:"Leadership attitude is the single biggest cultural variable in AI adoption. Be honest here — optimistic assessments lead to recommendations that won't actually land.",
+    why:"Leadership attitude is the single biggest cultural variable in AI adoption. Be honest here, optimistic assessments lead to recommendations that won't actually land.",
     options:[
       {title:"Actively opposed or deeply sceptical",             desc:"AI is seen as a threat, overhyped, risky, or simply not relevant to us"},
-      {title:"Passively disengaged",                            desc:"Not opposed, but not paying attention either — it's not on their radar"},
+      {title:"Passively disengaged",                            desc:"Not opposed, but not paying attention either, it's not on their radar"},
       {title:"Open, but waiting for someone else to make the case", desc:"Receptive if convinced, but won't initiate or push for it"},
-      {title:"Enthusiastic but uncertain how to act on it",     desc:"Positive intent and genuine interest — needs structure and a plan"},
+      {title:"Enthusiastic but uncertain how to act on it",     desc:"Positive intent and genuine interest, needs structure and a plan"},
       {title:"Actively driving the AI agenda",                  desc:"Leadership is the catalyst here, not the obstacle"}
     ]
   },
@@ -1274,41 +1274,41 @@ const Qs = [
     text:"How does your business approach risk and experimentation?",
     why:"AI adoption requires a tolerance for trying things, learning from what doesn't work, and iterating. This shapes what a realistic implementation timeline looks like for you.",
     options:[
-      {title:"Very risk-averse — we need proof before we try things", desc:"New approaches have to be watertight before anyone commits"},
-      {title:"Cautious — we pilot quietly before any wider rollout",  desc:"Small, low-stakes tests first — then scale if it works"},
-      {title:"Balanced — we manage risk but don't let it stop us",    desc:"Happy to experiment with reasonable guardrails in place"},
-      {title:"Entrepreneurial — we move fast and course-correct",     desc:"Speed matters more than certainty — we'll figure it out"},
-      {title:"Experimental — we actively build a test-and-learn culture", desc:"Failure is expected and accepted as a natural part of making progress"}
+      {title:"Very risk-averse, we need proof before we try things", desc:"New approaches have to be watertight before anyone commits"},
+      {title:"Cautious, we pilot quietly before any wider rollout",  desc:"Small, low-stakes tests first, then scale if it works"},
+      {title:"Balanced, we manage risk but don't let it stop us",    desc:"Happy to experiment with reasonable guardrails in place"},
+      {title:"Entrepreneurial, we move fast and course-correct",     desc:"Speed matters more than certainty, we'll figure it out"},
+      {title:"Experimental, we actively build a test-and-learn culture", desc:"Failure is expected and accepted as a natural part of making progress"}
     ]
   },
   { id:"concerns", section:"culture", type:"multi", newSection:false,
     text:"Which of these ethical or practical concerns do you have about AI?",
     why:"All of these are legitimate. Flagging them explicitly means we can address them in your roadmap rather than leaving them to surface as objections later.",
     options:[
-      {title:"Data privacy",                desc:"What we'd be sharing with AI systems — and where that data goes"},
+      {title:"Data privacy",                desc:"What we'd be sharing with AI systems, and where that data goes"},
       {title:"Accuracy and reliability",    desc:"AI producing incorrect, misleading or confidently wrong outputs"},
       {title:"Impact on our team",          desc:"Job displacement, morale, or people feeling threatened"},
       {title:"Brand and reputational risk", desc:"AI producing off-brand, inappropriate or embarrassing content"},
       {title:"Over-reliance",              desc:"Losing human judgment, institutional knowledge or critical thinking"},
       {title:"Regulatory and compliance risk", desc:"Particularly relevant in regulated sectors like finance, healthcare or legal"},
-      {title:"None of these — we're not significantly concerned", desc:""}
+      {title:"None of these, we're not significantly concerned", desc:""}
     ]
   },
 
   // OPEN QUESTIONS
   { id:"goal", section:"strategy", type:"text", newSection:false,
     text:"What would a genuinely successful AI outcome look like for your business?",
-    why:"This is the most important question in the diagnostic. Be as specific or as broad as you like — your answer shapes the entire roadmap we build for you.",
+    why:"This is the most important question in the diagnostic. Be as specific or as broad as you like, your answer shapes the entire roadmap we build for you.",
     placeholder:"e.g. Cut the time we spend on admin and reporting by a third, improve the consistency and speed of our marketing output, build confidence that we're not falling behind our competitors, understand what AI could realistically save us in time and cost over the next year..."
   },
   { id:"appetite", section:"culture", type:"single", newSection:false,
     text:"What's your realistic appetite for change and investment over the next 12 months?",
     why:"Honest answers lead to practical recommendations. Ambition is good, but overcommitting leads to stalled initiatives that set AI adoption back further.",
     options:[
-      {title:"Low — quick wins only, minimum disruption",        desc:"A few tools adopted quietly, no structural change"},
-      {title:"Moderate — steady progress on a limited budget",   desc:"Build confidence gradually, learn as we go, keep it manageable"},
-      {title:"Meaningful — prepared to change some of how we work", desc:"Willing to invest time, budget and attention to do this properly"},
-      {title:"Ambitious — we want real, lasting transformation", desc:"Prepared to make AI a genuine competitive differentiator"}
+      {title:"Low, quick wins only, minimum disruption",        desc:"A few tools adopted quietly, no structural change"},
+      {title:"Moderate, steady progress on a limited budget",   desc:"Build confidence gradually, learn as we go, keep it manageable"},
+      {title:"Meaningful, prepared to change some of how we work", desc:"Willing to invest time, budget and attention to do this properly"},
+      {title:"Ambitious, we want real, lasting transformation", desc:"Prepared to make AI a genuine competitive differentiator"}
     ]
   },
   { id:"other", section:"about", type:"text", newSection:false,
@@ -1384,7 +1384,7 @@ function render() {
       const hint  = f.name === 'email' ? ' <span class="field-hint">Please use your work email. We don\'t accept Gmail, Hotmail or similar</span>' : '';
       innerHtml += `<div class="field-group"><label class="field-label">${label}${hint}</label><input type="${f.type}" id="f_${f.name}" placeholder="${f.placeholder}" value="${v}" autocomplete="${f.name === 'email' ? 'work email' : 'on'}" /></div>`;
     });
-    innerHtml += `<div class="email-error" id="emailError">Please enter a work email address — we can't accept Gmail, Hotmail, Outlook or other personal email providers.</div>`;
+    innerHtml += `<div class="email-error" id="emailError">Please enter a work email address; we can't accept Gmail, Hotmail, Outlook or other personal email providers.</div>`;
     innerHtml += `</div>`;
 
   } else if (q.type === 'single') {
@@ -1509,7 +1509,7 @@ function next() {
     if (!multi[q.id] || multi[q.id].size === 0) { shakeCard(); return; }
   }
 
-  // text: optional — save whatever's there (including blank)
+  // text: optional -- save whatever's there (including blank)
   if (q.type === 'text') ans[q.id] = document.getElementById(`ta_${q.id}`)?.value || '';
 
   if (idx < Qs.length - 1) { idx++; render(); window.scrollTo({top:0,behavior:'smooth'}); }
@@ -1554,7 +1554,7 @@ function updateProg() {
 const EMAILJS_PUBLIC_KEY  = 'sBw-D-T4bdEVbemVu';
 const EMAILJS_SERVICE_ID  = 'service_fuiqawi';
 const EMAILJS_TEMPLATE_ID = 'template_3yg4bzt';
-// Anthropic key now lives server-side in the Netlify function (env var ANTHROPIC_API_KEY) — not in the browser.
+// Anthropic key now lives server-side in the Netlify function (env var ANTHROPIC_API_KEY) -- not in the browser.
 
 /* ─────────────────────────────────────────
    SUBMIT
