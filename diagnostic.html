@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="/consent.js" defer></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Readiness Diagnostic</title>
@@ -794,7 +796,7 @@ input::placeholder { color: var(--light); }
 .ty-foot{max-width:520px;margin:22px auto 0;font-size:.86rem;color:var(--muted);line-height:1.6}
 </style>
 </head>
-<body>
+<body data-page="diagnostic">
 
 
 <!-- HEADER -->
@@ -836,7 +838,7 @@ input::placeholder { color: var(--light); }
     <div class="intro-grid">
       <div class="intro-tile">
         <div class="tile-icon ic-terra">◆</div>
-        <div class="tile-copy"><strong>Readiness Score</strong><span>Across 6 key dimensions of AI maturity</span></div>
+        <div class="tile-copy"><strong>Readiness Score</strong><span>Across 6 dimensions of AI maturity</span></div>
       </div>
       <div class="intro-tile">
         <div class="tile-icon ic-forest">→</div>
@@ -888,10 +890,10 @@ input::placeholder { color: var(--light); }
     <p class="ty-weakest" id="tyWeakest"></p>
     <div class="ty-book">
       <h3>Book your free 20-minute call</h3>
-      <p>Your score shows where you stand. On this call we&rsquo;ll go through what it means for your specific business, which opportunities are worth prioritising, and whether a Snapshot Report would be a useful next step. No pitch, no obligation.</p>
+      <p>Your score shows where you stand. On this call we'll go through what it means for your specific business, which opportunities are worth prioritising, and whether a Snapshot Report would be a useful next step. No pitch, no obligation.</p>
       <div id="calBox" style="min-width:320px;height:640px;"></div>
     </div>
-    <p class="ty-foot">The score above is generated automatically from your answers. The call below is a free 20-minute conversation with Justin to go through what it means for your business and agree a sensible next step. If a Snapshot Report makes sense for you, that&rsquo;s a bespoke written document covering your six dimensions in detail, your highest-priority opportunities, and a clear first move. It costs &pound;500 and takes about five working days.</p>
+    <p class="ty-foot">The score above is generated automatically from your answers. The call below is a free 20-minute conversation with Justin to go through what it means for your business and agree a sensible next step. If a Snapshot Report makes sense for you, that's a bespoke written document covering your six dimensions in detail, your highest-priority opportunities, and a clear first move. It costs &pound;500 and takes about five working days.</p>
     <div class="ty-credit"><span>Powered by <strong>Yea I</strong> &middot; AI Strategy Consulting</span></div>
   </div>
 </div>
@@ -959,7 +961,7 @@ const Qs = [
   // ABOUT
   { id:"contact", section:"about", type:"contact", newSection:true,
     text:"Let's start with a bit about you",
-    why:"This lets us give context-relevant advice rather than generic guidance. Your details stay confidential.",
+    why:"This lets us give advice built around your situation. Your details stay confidential.",
     fields:[
       {name:"name",    label:"Your name",           type:"text",  placeholder:"e.g. Sarah Johnson"},
       {name:"company", label:"Company name",         type:"text",  placeholder:"e.g. Acme Ltd"},
@@ -1008,20 +1010,20 @@ const Qs = [
   },
   { id:"pain_point", section:"about", type:"text", newSection:false,
     text:"What are your three biggest business pain points right now?",
-    why:"Understanding where the real friction is in your business helps us identify where AI is most likely to make a meaningful difference, rather than just recommending what sounds good in theory.",
+    why:"Understanding where the real friction is in your business helps us identify where AI is most likely to make a meaningful difference in practice.",
     placeholder:"e.g. 1. We spend too much time on manual admin and reporting  2. Our sales team can't keep up with follow-ups  3. We struggle to produce consistent marketing content at the pace we need..."
   },
 
   // STRATEGY
   { id:"ai_vision", section:"strategy", type:"single", newSection:true,
     text:"Does your business have a defined AI strategy or vision?",
-    why:"We're not asking whether you use AI tools. We're asking whether there's intentional thinking about where AI fits into your overall direction and goals.",
+    why:"Here we mean intentional thinking about where AI fits into your overall direction and goals. Tool use comes later in the diagnostic.",
     options:[
       {title:"No, AI isn't on our strategic agenda yet",          desc:"It hasn't come up at leadership level in any meaningful way"},
       {title:"It's come up, but nothing has been formalised",      desc:"General awareness that it matters, but no documented direction"},
       {title:"We have a rough sense of direction but nothing written down", desc:"Some internal consensus, but not committed to paper"},
       {title:"We have a documented AI strategy that's in progress", desc:"Written, being developed, not yet fully adopted or acted on"},
-      {title:"We have a clear, active AI strategy",                desc:"Leadership-aligned, with defined goals and clear accountability"}
+      {title:"We have a clear, active AI strategy",                desc:"Agreed at leadership level, with defined goals and clear accountability"}
     ]
   },
   { id:"competitive_threat", section:"strategy", type:"single", newSection:false,
@@ -1037,7 +1039,7 @@ const Qs = [
   },
   { id:"ai_goals", section:"strategy", type:"multi", newSection:false,
     text:"What do you want to achieve with AI?",
-    why:"Knowing your goals up front means the report we put together is pointed in the right direction from the start, not just a generic list of AI things you could theoretically do.",
+    why:"Knowing your goals up front points the report in the right direction from the start, so every recommendation ties back to what you actually want.",
     options:[
       {title:"Save time and reduce manual workload",       desc:"Free up the team from repetitive tasks so they can focus on higher-value work"},
       {title:"Improve quality and consistency of output",  desc:"Better, more reliable work, from content to reporting to customer communication"},
@@ -1080,7 +1082,7 @@ const Qs = [
       {title:"We don't have structured data to speak of",           desc:"Most information lives in people's heads, emails or spreadsheets with no consistency"},
       {title:"Data exists but it's scattered and unreliable",       desc:"Multiple systems that don't talk to each other, lots of gaps and inconsistencies"},
       {title:"Patchy, well-organised in some areas, not in others", desc:"Good pockets of clean data, but no consistent standard across the business"},
-      {title:"Most of our key data is structured and accessible",   desc:"Reasonably reliable across core functions, though integration could be better"},
+      {title:"Most of our core data is structured and accessible",   desc:"Reasonably reliable across core functions, though integration could be better"},
       {title:"Clean, well-maintained and consistently structured",  desc:"A solid foundation, reliable enough to build on with confidence"}
     ]
   },
@@ -1112,13 +1114,13 @@ const Qs = [
   },
   { id:"data_capture", section:"data", type:"multi", newSection:false,
     text:"Which of these data problems do you recognise in your business?",
-    why:"These are the most common data readiness issues we find in SMEs. Being honest about them now means the report we put together addresses the real foundations, not just the exciting stuff on top.",
+    why:"These are the most common data readiness issues we find in SMEs. Being honest about them now means the report can fix the foundations first, then build the exciting opportunities on top.",
     options:[
       {title:"Customer records are duplicated or inconsistent",      desc:"Same customer, multiple records, or records that contradict each other"},
       {title:"Financial data requires manual reconciliation",        desc:"Someone has to bridge the gap between systems by hand"},
       {title:"Website and marketing analytics aren't properly set up", desc:"You're flying blind on what's working and what isn't"},
       {title:"Product or service data isn't consistently maintained", desc:"Descriptions, pricing, specs, held differently across different places"},
-      {title:"Operational data isn't being captured at all",         desc:"Key processes happen but nothing is recorded or measured"},
+      {title:"Operational data isn't being captured at all",         desc:"Core processes happen but nothing is recorded or measured"},
       {title:"Data sits in formats AI can't easily read",            desc:"PDFs, scanned documents, handwritten notes, legacy file formats"},
       {title:"None of these, our data is in good shape",           desc:""}
     ]
@@ -1129,7 +1131,7 @@ const Qs = [
     options:[
       {title:"They don't, each system is completely siloed",        desc:"Data has to be manually copied or re-entered between tools"},
       {title:"Minimal connection, a couple of basic integrations",  desc:"Some data flows automatically, most doesn't"},
-      {title:"Partial, key systems are connected, others aren't",   desc:"The core is reasonably joined up, gaps exist at the edges"},
+      {title:"Partial, the main systems are connected, others aren't",   desc:"The core is reasonably joined up, gaps exist at the edges"},
       {title:"Most systems share data reasonably well",              desc:"Solid integration across the main tools, minor gaps"},
       {title:"Fully connected, our stack works as one ecosystem",   desc:"Data flows freely, automations run across systems, minimal manual bridging"}
     ]
@@ -1149,7 +1151,7 @@ const Qs = [
   // PEOPLE
   { id:"ai_literacy", section:"people", type:"single", newSection:true,
     text:"How would you assess AI literacy across your team as a whole?",
-    why:"We're not asking about technical skills. We mean general understanding of what AI can do, and confidence to experiment with it day-to-day.",
+    why:"Here we mean everyday understanding of what AI can do, and the confidence to experiment with it, across the team whatever their technical background.",
     options:[
       {title:"Very low, most people have little or no exposure", desc:"AI feels abstract or irrelevant to most of the team"},
       {title:"One or two curious people, but no general awareness", desc:"AI is seen as someone else's responsibility"},
@@ -1203,7 +1205,7 @@ const Qs = [
     options:[
       {title:"We don't really use AI tools in our day-to-day",  desc:"Maybe a one-off experiment, but nothing consistent"},
       {title:"Occasional use, a handful of times per week",    desc:"It's more experiment than habit at this stage"},
-      {title:"Regular use by some people for specific tasks",   desc:"Genuinely useful in certain areas, but not transformative yet"},
+      {title:"Regular use by some people for specific tasks",   desc:"Genuinely useful in certain areas, but not yet changing how we work"},
       {title:"Multiple people rely on AI tools as part of their routine", desc:"Measurable time saving and productivity impact"},
       {title:"AI is embedded in our core workflows",            desc:"It would be hard to imagine going back, it's part of how we work"}
     ]
@@ -1308,7 +1310,7 @@ const Qs = [
       {title:"Low, quick wins only, minimum disruption",        desc:"A few tools adopted quietly, no structural change"},
       {title:"Moderate, steady progress on a limited budget",   desc:"Build confidence gradually, learn as we go, keep it manageable"},
       {title:"Meaningful, prepared to change some of how we work", desc:"Willing to invest time, budget and attention to do this properly"},
-      {title:"Ambitious, we want real, lasting transformation", desc:"Prepared to make AI a genuine competitive differentiator"}
+      {title:"Ambitious, we want deep, lasting change", desc:"Prepared to make AI a genuine competitive differentiator"}
     ]
   },
   { id:"other", section:"about", type:"text", newSection:false,
@@ -1328,7 +1330,7 @@ const multi = {};
 /* ─────────────────────────────────────────
    START
 ───────────────────────────────────────── */
-function start() {
+function start() { try{window.yeaiTrack("diagnostic_started");}catch(e){}
   document.getElementById('introScreen').style.display = 'none';
   idx = 0;
   render();
@@ -1496,7 +1498,7 @@ function next() {
     if (!validateContact()) return;
     const name = document.getElementById('f_name')?.value?.trim();
     const email = document.getElementById('f_email')?.value?.trim();
-    if (!name || !email) { shakeCard(); return; }
+    if (!name || !email) { shakeCard(); return; } try{window.yeaiTrack("contact_submitted");}catch(e){}
   }
 
   // single: must have a selection
@@ -1596,7 +1598,7 @@ async function sendEmailNotification() {
   });
 
   try {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    try{window.yeaiTrack("diagnostic_completed");}catch(e){} emailjs.init(EMAILJS_PUBLIC_KEY);
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       respondent: name,
       company:    company,
