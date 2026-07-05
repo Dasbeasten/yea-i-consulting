@@ -1,5 +1,8 @@
 # Netlify configuration for Yea I Consulting
 
+[build]
+  command = "node check-dashes.mjs"
+
 [[headers]]
   for = "/*"
   [headers.values]
