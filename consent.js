@@ -31,6 +31,7 @@
       t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", CLARITY_ID);
+    try { window.clarity("consent"); } catch (e) {}
     // page-specific event, fired once Clarity is on
     if (document.body && document.body.getAttribute("data-page") === "diagnostic") {
       window.yeaiTrack("diagnostic_viewed");
@@ -76,7 +77,26 @@
     if (!document.getElementById("cookie-banner")) buildBanner();
   };
 
+  function addFooterSettingsLink() {
+    try {
+      if (document.getElementById("ck-settings-link")) return;
+      var ck = document.querySelector('footer a[href^="/cookies"]');
+      if (!ck) return;
+      var link = document.createElement("a");
+      link.id = "ck-settings-link";
+      link.href = "#";
+      link.textContent = "Cookie settings";
+      if (ck.className) link.className = ck.className;
+      var st = ck.getAttribute("style");
+      if (st) link.setAttribute("style", st);
+      link.addEventListener("click", function (e) { e.preventDefault(); window.yeaiOpenCookieSettings(); });
+      ck.insertAdjacentElement("afterend", link);
+      link.insertAdjacentText("beforebegin", " \u00b7 ");
+    } catch (e) {}
+  }
+
   function init() {
+    addFooterSettingsLink();
     var choice = readChoice();
     if (choice === "accepted") { loadClarity(); return; }
     if (choice === "rejected") { return; }
