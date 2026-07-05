@@ -58,12 +58,6 @@
   to = "/insights/why-ai-pilots-fail.html"
   status = 200
 
-# 404 fallback
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
-
 [[redirects]]
   from = "/insights/first-ai-era-hire"
   to = "/insights/first-ai-era-hire.html"
@@ -73,3 +67,9 @@
   from = "/insights/ai-in-creative-agencies"
   to = "/insights/ai-in-creative-agencies.html"
   status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

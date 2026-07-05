@@ -1,17 +1,11 @@
 /* Yea I cookie consent + gated Microsoft Clarity loader.
    No non-essential cookies fire until the visitor clicks Accept.
    Reject means Clarity never loads. Choice is remembered and reversible.
-   Replace PASTE_YOUR_CLARITY_PROJECT_ID below with your real project ID. */
+   Clarity project ID xhmnlqqza3 is set below. */
 (function () {
   "use strict";
 
-  var CLARITY_ID = "<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xhmnlqqza3");
-</script>";
+  var CLARITY_ID = "xhmnlqqza3";
   var STORAGE_KEY = "yeai-consent";      // values: "accepted" | "rejected"
   var clarityLoaded = false;
 
