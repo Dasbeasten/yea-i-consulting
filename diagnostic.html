@@ -1569,8 +1569,10 @@ function submit() {
   document.getElementById('advToggle').classList.add('show');
   window.scrollTo({top:0,behavior:'smooth'});
   buildAdvisor();
-  sendEmailNotification();
-  setTimeout(function(){ var r=document.getElementById('tyResults'); if(r && r.dataset.shown!=='1') renderUserResults(null); }, 120000);
+  try { window.yeaiTrack("diagnostic_completed"); } catch(e) {}
+  var ss = document.getElementById('submitStatus');
+  if (ss) { ss.innerHTML = '&#10003; Responses received. Your score is loading above. Book the free call below to go through what it means.'; ss.className = 'submit-status success'; }
+  setTimeout(function(){ var r=document.getElementById('tyResults'); if(r && r.dataset.shown!=='1') renderUserResults(null); }, 15000);
 }
 
 async function sendEmailNotification() {
@@ -1700,27 +1702,70 @@ function renderUserResults(text){
   (function initCal(n){ var box=document.getElementById('calBox'); if(!box) return; if(window.Calendly&&window.Calendly.initInlineWidget){ try{ box.innerHTML=''; window.Calendly.initInlineWidget({url:CAL_URL,parentElement:box}); }catch(e){} } else if((n||0)<25){ setTimeout(function(){initCal((n||0)+1);},400);} })(0);
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function buildResponsesText() {
+  const name    = ans['c_name']    || 'Unknown';
+  const company = ans['c_company'] || 'Unknown';
+  const email   = ans['c_email']   || 'Unknown';
+  const role    = ans['c_role']    || 'Unknown';
+  let out = 'NEW AI READINESS DIAGNOSTIC\n' + '-'.repeat(40) + '\n';
+  out += 'Name:    ' + name + '\nRole:    ' + role + '\nCompany: ' + company + '\nEmail:   ' + email + '\n' + '-'.repeat(40) + '\n\n';
+  Qs.forEach(q => {
+    if (q.type === 'contact') return;
+    out += q.text + '\n';
+    if (q.type === 'single' && ans[q.id] !== undefined)
+      out += 'Answer: ' + q.options[ans[q.id]].title + '\n\n';
+    else if (q.type === 'multi' && multi[q.id]) {
+      const sel = [...multi[q.id]].map(i => q.options[i].title);
+      out += 'Answer: ' + (sel.length ? sel.join(', ') : 'None selected') + '\n\n';
+    } else if (q.type === 'text') {
+      out += 'Answer: ' + (ans[q.id] || '(left blank)') + '\n\n';
+    }
+  });
+  return out;
+}
+
+function fireBackground(summary, scoresText) {
+  try {
+    const name  = ans['c_name']    || 'Unknown';
+    const co    = ans['c_company'] || 'Unknown';
+    const email = ans['c_email']   || 'Unknown';
+    const role  = ans['c_role']    || 'Unknown';
+    fetch('/.netlify/functions/diagnostic-submit-background', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, company: co, email, role,
+        summary: summary || '',
+        responses: buildResponsesText(),
+        scores: scoresText || null
+      })
+    }).catch(function(){});
+  } catch (e) {}
+}
+
 async function generateDiagnosis(name, co, role, summary) {
   document.getElementById('advWaiting').classList.add('show');
   const el = document.getElementById('advDiagnosis');
   try {
-    const res = await fetch('/.netlify/functions/diagnose', {
+    const res = await fetch('/.netlify/functions/diagnose-score', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, company: co, role, summary })
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || ('Request failed (' + res.status + ')'));
-    const text = data.text || 'Unable to generate diagnosis.';
-    el.textContent = text;
+    const text = data.text || '';
+    el.textContent = (text ? text + '\n\n' : '') + 'Full written briefing has been emailed to justin@yea-i.com.';
     el.classList.remove('placeholder');
     document.getElementById('advWaiting').classList.remove('show');
     try { renderUserResults(text); } catch(e) { renderUserResults(null); }
+    fireBackground(summary, text);
   } catch (err) {
-    el.textContent = 'Error generating diagnosis. Please check your connection and try again.';
+    el.textContent = 'Score service error. The written briefing has still been requested by email.';
     el.classList.remove('placeholder');
     document.getElementById('advWaiting').classList.remove('show');
     renderUserResults(null);
+    fireBackground(summary, null);
   }
 }
 
