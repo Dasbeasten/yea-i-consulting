@@ -68,6 +68,41 @@
   to = "/insights/ai-in-creative-agencies.html"
   status = 200
 
+[[redirects]]
+  from = "/insights/ai-budget-small-business"
+  to = "/insights/ai-budget-small-business.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/talking-to-your-team-about-ai"
+  to = "/insights/talking-to-your-team-about-ai.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/microsoft-365-copilot-overlooked-features"
+  to = "/insights/microsoft-365-copilot-overlooked-features.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/how-to-read-an-ai-vendor-pitch"
+  to = "/insights/how-to-read-an-ai-vendor-pitch.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/how-to-measure-ai-roi"
+  to = "/insights/how-to-measure-ai-roi.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/ai-policy-for-smes"
+  to = "/insights/ai-policy-for-smes.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline"
+  to = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  status = 200
+
 # 404 fallback
 [[redirects]]
   from = "/*"
