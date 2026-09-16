@@ -1,0 +1,110 @@
+# Netlify configuration for Yea I Consulting
+
+[build]
+  command = "node check-dashes.mjs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Serve index.html for root
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Clean URLs - allow /insights to work as /insights.html
+[[redirects]]
+  from = "/insights"
+  to = "/insights.html"
+  status = 200
+
+[[redirects]]
+  from = "/diagnostic"
+  to = "/diagnostic.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookies"
+  to = "/cookies.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/is-your-business-ready-for-ai"
+  to = "/insights/is-your-business-ready-for-ai.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/ai-tools-already-in-your-software-stack"
+  to = "/insights/ai-tools-already-in-your-software-stack.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/why-ai-pilots-fail"
+  to = "/insights/why-ai-pilots-fail.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/first-ai-era-hire"
+  to = "/insights/first-ai-era-hire.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/ai-in-creative-agencies"
+  to = "/insights/ai-in-creative-agencies.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/ai-budget-small-business"
+  to = "/insights/ai-budget-small-business.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/talking-to-your-team-about-ai"
+  to = "/insights/talking-to-your-team-about-ai.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/microsoft-365-copilot-overlooked-features"
+  to = "/insights/microsoft-365-copilot-overlooked-features.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/how-to-read-an-ai-vendor-pitch"
+  to = "/insights/how-to-read-an-ai-vendor-pitch.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/how-to-measure-ai-roi"
+  to = "/insights/how-to-measure-ai-roi.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/ai-policy-for-smes"
+  to = "/insights/ai-policy-for-smes.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline"
+  to = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
