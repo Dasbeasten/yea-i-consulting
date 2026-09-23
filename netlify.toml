@@ -103,6 +103,11 @@
   to = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline.html"
   status = 200
 
+[[redirects]]
+  from = "/insights/ai-marketing-approval-bottleneck"
+  to = "/insights/ai-marketing-approval-bottleneck.html"
+  status = 200
+
 # 404 fallback
 [[redirects]]
   from = "/*"
