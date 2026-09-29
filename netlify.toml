@@ -100,7 +100,29 @@
 
 [[redirects]]
   from = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline"
-  to = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  to = "/case-studies/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  status = 301
+
+[[redirects]]
+  from = "/insights/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  to = "/case-studies/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  status = 301
+  force = true
+
+# Case studies
+[[redirects]]
+  from = "/case-studies"
+  to = "/case-studies.html"
+  status = 200
+
+[[redirects]]
+  from = "/case-studies/turning-a-recruitment-bottleneck-into-a-pipeline"
+  to = "/case-studies/turning-a-recruitment-bottleneck-into-a-pipeline.html"
+  status = 200
+
+[[redirects]]
+  from = "/case-studies/turning-decades-of-design-data-into-a-commercial-engine"
+  to = "/case-studies/turning-decades-of-design-data-into-a-commercial-engine.html"
   status = 200
 
 [[redirects]]
