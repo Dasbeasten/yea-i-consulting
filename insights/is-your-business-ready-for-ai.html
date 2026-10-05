@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#2E4A3A;--ink-d:#1D3025;--teal:#2A6B5C;--teal-m:#3A8A78;
-  --coral:#C4714A;--coral-l:#D4896A;--coral-pale:#F7EDE6;
-  --cream:#FAF7F2;--sand:#E8E0D0;--sand-d:#D0C4B0;
-  --stone:#6B6B62;--muted:#9E9E92;--offwhite:#FFFDF9;--mint:#EAF0EC;
+  --ink:#041F1E; --ink-d:#041F1E; --teal:#0F7A6A; --teal-m:#0F7A6A; --vivid:#00C9A7; --teal-l:#72E8D0;
+  --coral:#FF5C5C; --coral-l:#FF9090; --coral-pale:#FFE9E9; --link:#0F7A6A;
+  --cream:#F0FAFA; --sand:#D3E6E4; --sand-d:#B9D6D2;
+  --stone:#2C3E3D; --muted:#6B8280; --offwhite:#F7FCFC; --mint:#DDF5F0;
   --serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
   --W:720px;--nav:66px;
 }
@@ -28,14 +28,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);
   display:flex;align-items:center;justify-content:space-between;padding:0 5%;
-  background:rgba(14,34,24,.97);backdrop-filter:blur(10px);
+  background:rgba(4,31,30,.97);backdrop-filter:blur(10px);
   box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-logo{height:30px;width:auto;display:block;opacity:.9}
 .nav-links{display:flex;align-items:center;gap:2px}
 .nl{font-size:.77rem;font-weight:500;color:rgba(255,255,255,.52);padding:7px 12px;border-radius:5px;transition:color .2s,background .2s}
 .nl:hover{color:white;background:rgba(255,255,255,.08)}
-.npill{margin-left:10px;padding:8px 18px;background:var(--coral);color:white;font-size:.76rem;font-weight:600;border-radius:20px;transition:background .2s,transform .2s}
-.npill:hover{background:var(--coral-l);transform:translateY(-1px)}
+.npill{margin-left:10px;padding:8px 18px;background:var(--vivid);color:var(--ink);font-size:.76rem;font-weight:600;border-radius:20px;transition:background .2s,transform .2s}
+.npill:hover{background:var(--teal-l);transform:translateY(-1px)}
 .burger{display:none;flex-direction:column;gap:5px;padding:6px}
 .burger span{width:20px;height:1.5px;background:rgba(255,255,255,.6);border-radius:2px}
 
@@ -44,21 +44,21 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 .art-hero-topo{position:absolute;inset:0;background-size:cover;opacity:.04;pointer-events:none}
 .art-hero-inner{max-width:var(--W);margin:0 auto;padding-bottom:48px;position:relative;z-index:1}
 .art-back{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:500;
-  color:rgba(154,191,184,.6);margin-bottom:24px;transition:color .2s}
-.art-back:hover{color:rgba(154,191,184,.9)}
+  color:rgba(176,214,210,.6);margin-bottom:24px;transition:color .2s}
+.art-back:hover{color:rgba(176,214,210,.9)}
 .art-back::before{content:'←';font-size:.8rem}
 .art-kicker{font-size:.63rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
   color:var(--coral-l);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.art-kicker::before{content:'◆';font-size:.44rem;color:rgba(212,137,106,.45)}
+.art-kicker::before{content:'◆';font-size:.44rem;color:rgba(255,144,144,.45)}
 .art-h1{font-family:var(--serif);font-size:clamp(1.9rem,4vw,3rem);font-weight:700;
   color:white;line-height:1.15;margin-bottom:16px}
-.art-standfirst{font-size:1.05rem;color:rgba(205,228,220,.8);line-height:1.72;
+.art-standfirst{font-size:1.05rem;color:rgba(240,250,250,.8);line-height:1.72;
   margin-bottom:24px;font-weight:300;max-width:620px}
 .art-byline{display:flex;align-items:center;gap:16px;padding-top:20px;
   border-top:1px solid rgba(255,255,255,.08)}
 .art-byline-name{font-size:.83rem;font-weight:600;color:white}
-.art-byline-meta{font-size:.76rem;color:rgba(154,191,184,.55)}
-.art-byline-dot{color:rgba(154,191,184,.3)}
+.art-byline-meta{font-size:.76rem;color:rgba(176,214,210,.55)}
+.art-byline-dot{color:rgba(176,214,210,.3)}
 
 /* ARTICLE BODY */
 .art-body{max-width:var(--W);margin:0 auto;padding:60px 5% 80px}
@@ -71,17 +71,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 .art-body strong{font-weight:600;color:var(--ink)}
 .art-body ul,.art-body ol{margin:6px 0 20px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
 .art-body ul li{display:flex;align-items:flex-start;gap:10px;font-size:.96rem;color:var(--stone);line-height:1.7}
-.art-body ul li::before{content:'→';color:var(--coral);font-weight:700;flex-shrink:0;margin-top:3px;font-size:.82rem}
+.art-body ul li::before{content:'→';color:var(--link);font-weight:700;flex-shrink:0;margin-top:3px;font-size:.82rem}
 .art-body ol{counter-reset:ol}
 .art-body ol li{counter-increment:ol;display:flex;align-items:flex-start;gap:10px;font-size:.96rem;color:var(--stone);line-height:1.7}
-.art-body ol li::before{content:counter(ol)'.';color:var(--coral);font-weight:700;flex-shrink:0;min-width:16px}
+.art-body ol li::before{content:counter(ol)'.';color:var(--link);font-weight:700;flex-shrink:0;min-width:16px}
 
 /* Callout boxes */
 .callout{margin:28px 0;padding:18px 22px;border-radius:0 8px 8px 0;border-left:3px solid var(--teal-m);background:var(--mint)}
 .callout-label{font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--teal-m);margin-bottom:7px}
 .callout p{font-size:.9rem;color:var(--ink);line-height:1.7;margin-bottom:0}
 .callout.warn{border-left-color:var(--coral);background:var(--coral-pale)}
-.callout.warn .callout-label{color:var(--coral)}
+.callout.warn .callout-label{color:var(--link)}
 .callout.warn p{color:var(--ink)}
 
 /* Divider */
@@ -91,22 +91,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 .art-cta{background:var(--ink);border-radius:12px;padding:32px 36px;margin:44px 0}
 .art-cta-label{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--coral-l);margin-bottom:10px;opacity:.8}
 .art-cta h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:white;margin-bottom:10px;line-height:1.25}
-.art-cta p{font-size:.88rem;color:rgba(205,228,220,.72);line-height:1.65;margin-bottom:20px}
-.art-cta a{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;background:var(--coral);
-  color:white;font-size:.84rem;font-weight:600;border-radius:24px;transition:all .25s}
-.art-cta a:hover{background:var(--coral-l);transform:translateY(-1px)}
+.art-cta p{font-size:.88rem;color:rgba(240,250,250,.72);line-height:1.65;margin-bottom:20px}
+.art-cta a{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;background:var(--vivid);
+  color:var(--ink);font-size:.84rem;font-weight:600;border-radius:24px;transition:all .25s}
+.art-cta a:hover{background:var(--teal-l);transform:translateY(-1px)}
 
 /* Related articles */
 .related{background:var(--offwhite);padding:56px 5%;border-top:1px solid var(--sand)}
 .related-inner{max-width:var(--W);margin:0 auto}
-.related-label{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:28px;display:flex;align-items:center;gap:7px}
+.related-label{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--link);margin-bottom:28px;display:flex;align-items:center;gap:7px}
 .related-label::before{content:'◆';font-size:.44rem;color:var(--coral-l)}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--sand-d)}
 .rel-art{background:var(--offwhite);padding:22px;display:flex;flex-direction:column;transition:background .2s}
 .rel-art:hover{background:var(--cream)}
 .rel-tag{font-size:.61rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal-m);margin-bottom:9px}
 .rel-title{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.38;margin-bottom:8px;flex:1}
-.rel-read{font-size:.73rem;font-weight:600;color:var(--coral);display:flex;align-items:center;gap:4px;margin-top:auto;transition:gap .2s}
+.rel-read{font-size:.73rem;font-weight:600;color:var(--link);display:flex;align-items:center;gap:4px;margin-top:auto;transition:gap .2s}
 .rel-art:hover .rel-read{gap:8px}
 
 /* FOOTER */
@@ -114,7 +114,7 @@ footer{background:var(--ink-d);padding:48px 5% 28px}
 .ft-inner{max-width:1140px;margin:0 auto}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:20px}
 .flogo{height:26px;opacity:.75;margin-bottom:8px;display:block}
-.fbtag{font-size:.77rem;color:rgba(154,191,184,.46);font-style:italic;font-family:var(--serif);margin-bottom:12px;line-height:1.5}
+.fbtag{font-size:.77rem;color:rgba(176,214,210,.46);font-style:italic;font-family:var(--serif);margin-bottom:12px;line-height:1.5}
 .fct{font-size:.61rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--coral-l);margin-bottom:11px;opacity:.76}
 .flnks{display:flex;flex-direction:column;gap:6px}
 .flnk{font-size:.78rem;color:rgba(255,255,255,.35);transition:color .2s}
@@ -130,7 +130,7 @@ footer{background:var(--ink-d);padding:48px 5% 28px}
 
 @media(max-width:768px){
   .nav-links{display:none}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;top:var(--nav);background:rgba(10,24,16,.98);backdrop-filter:blur(12px);padding:24px 5%;gap:4px;z-index:198}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;top:var(--nav);background:rgba(4,31,30,.98);backdrop-filter:blur(12px);padding:24px 5%;gap:4px;z-index:198}
   .nl{font-size:.93rem;padding:11px 13px;border-radius:7px}
   .npill{display:none}
   .burger{display:flex}
@@ -250,14 +250,14 @@ footer{background:var(--ink-d);padding:48px 5% 28px}
 
   <h2>Where to start</h2>
 
-  <p>If you're trying to get an honest picture of your business's AI readiness right now, the most practical starting point is our free AI Readiness Diagnostic. It takes 15 to 20 minutes, covers all six dimensions, and produces a personalised report reviewed by a real person within one working day.</p>
+  <p>If you're trying to get an honest picture of your business's AI readiness right now, the most practical starting point is our free AI Readiness Diagnostic. It takes around 15 minutes and covers all six dimensions, your score appears on screen as soon as you finish, and an email with more detail follows.</p>
 
   <p>It's designed to tell you something specific and useful, not just give you a number. And it's genuinely free, with no obligation to do anything with us afterwards.</p>
 
   <div class="art-cta">
   <div class="art-cta-label">Found this useful?</div>
   <h3>Take the free AI Readiness Diagnostic</h3>
-  <p>See exactly where your business stands across the six dimensions of AI readiness. You get a personalised report back within one working day.</p>
+  <p>See where your business stands across the six dimensions of AI readiness. Your score appears on screen as soon as you finish, and an email with more detail follows.</p>
   <a href="/diagnostic.html">Take the diagnostic →</a>
 </div>
 
@@ -292,11 +292,11 @@ footer{background:var(--ink-d);padding:48px 5% 28px}
       <div>
         <div class="fct">Services</div>
         <div class="flnks">
-          <a href="/#services" class="flnk">AI Readiness Audit</a>
-          <a href="/#services" class="flnk">Strategy & Roadmap</a>
-          <a href="/#services" class="flnk">Implementation</a>
-          <a href="/#services" class="flnk">Advisory</a>
-          <a href="/#services" class="flnk">Workshops</a>
+          <a href="/#services" class="flnk">AI Readiness Diagnostic</a>
+          <a href="/#services" class="flnk">AI Snapshot Report</a>
+          <a href="/#services" class="flnk">Full AI Strategy Report</a>
+          <a href="/#services" class="flnk">Implementation &amp; Advisory</a>
+          <a href="/#services" class="flnk">AI Literacy Workshops</a>
         </div>
       </div>
       <div>
