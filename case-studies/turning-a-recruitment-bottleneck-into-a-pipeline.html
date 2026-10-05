@@ -5,17 +5,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Turning a recruitment bottleneck into a pipeline · Yea I Consulting</title>
-<meta name="description" content="How a specialist data centre delivery consultancy mapped its single biggest growth constraint and built an AI plan designed to pay for itself inside the first year.">
+<meta name="description" content="How a specialist construction consultancy found its biggest growth constraint, recruitment, and built a five-step AI plan around fixing it.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#2E4A3A; --ink-d:#1D3025; --teal:#2A6B5C; --teal-m:#3A8A78;
-  --coral:#C4714A; --coral-l:#D4896A; --coral-pale:#F7EDE6;
-  --cream:#FAF7F2; --sand:#E8E0D0; --sand-d:#D0C4B0;
-  --stone:#6B6B62; --muted:#9E9E92; --offwhite:#FFFDF9; --mint:#EAF0EC;
+  --ink:#041F1E; --ink-d:#041F1E; --teal:#0F7A6A; --teal-m:#0F7A6A; --vivid:#00C9A7; --teal-l:#72E8D0;
+  --coral:#FF5C5C; --coral-l:#FF9090; --coral-pale:#FFE9E9; --link:#0F7A6A;
+  --cream:#F0FAFA; --sand:#D3E6E4; --sand-d:#B9D6D2;
+  --stone:#2C3E3D; --muted:#6B8280; --offwhite:#F7FCFC; --mint:#DDF5F0;
   --serif:'Lora',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
   --W:1140px; --nav:66px;
 }
@@ -29,17 +29,17 @@ button{cursor:pointer;font-family:var(--sans);border:none;background:none}
 /* nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);
   display:flex;align-items:center;justify-content:space-between;padding:0 5%;
-  background:rgba(14,34,24,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  background:rgba(4,31,30,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-logo{height:34px;width:auto;display:block;opacity:1}
 .nav-links{display:flex;align-items:center;gap:2px}
 .nl{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.55);padding:7px 12px;border-radius:5px;
   transition:color .2s,background .2s;letter-spacing:.015em}
 .nl:hover{color:white;background:rgba(255,255,255,.08)}
 .nl.active{color:white}
-.npill{margin-left:10px;padding:8px 18px;background:var(--coral);color:white;
+.npill{margin-left:10px;padding:8px 18px;background:var(--vivid);color:var(--ink);
   font-size:.76rem;font-weight:600;border-radius:20px;letter-spacing:.015em;
-  transition:background .2s,transform .2s;box-shadow:0 2px 12px rgba(196,113,74,.3)}
-.npill:hover{background:var(--coral-l);transform:translateY(-1px)}
+  transition:background .2s,transform .2s;box-shadow:0 2px 12px rgba(0,201,167,.3)}
+.npill:hover{background:var(--teal-l);transform:translateY(-1px)}
 .burger{display:none;flex-direction:column;gap:5px;padding:6px}
 .burger span{width:20px;height:1.5px;background:rgba(255,255,255,.6);border-radius:2px;transition:all .3s}
 
@@ -50,10 +50,10 @@ button{cursor:pointer;font-family:var(--sans);border:none;background:none}
 .page-hero-inner{position:relative;max-width:var(--W);margin:0 auto}
 .eyebrow{font-size:.63rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
   color:var(--coral-l);margin-bottom:14px;display:flex;align-items:center;gap:7px}
-.eyebrow::before{content:'◆';font-size:.44rem;color:rgba(212,137,106,.45)}
+.eyebrow::before{content:'◆';font-size:.44rem;color:rgba(255,144,144,.45)}
 .page-h1{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;
   color:white;line-height:1.15;margin-bottom:16px}
-.page-lead{font-size:1.02rem;color:rgba(205,228,220,.72);max-width:560px;line-height:1.75;font-weight:300}
+.page-lead{font-size:1.02rem;color:rgba(240,250,250,.72);max-width:560px;line-height:1.75;font-weight:300}
 
 /* content wrap */
 .wrap{max-width:var(--W);margin:0 auto;padding:64px 8%}
@@ -63,50 +63,50 @@ button{cursor:pointer;font-family:var(--sans);border:none;background:none}
   line-height:1.2;margin-bottom:14px;color:var(--ink)}
 .H.w{color:white}
 .ey{font-size:.63rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
-  color:var(--coral);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+  color:var(--link);margin-bottom:12px;display:flex;align-items:center;gap:7px}
 .ey::before{content:'◆';font-size:.44rem;color:var(--coral-l)}
 .ey.lt{color:var(--coral-l)}
-.ey.lt::before{color:rgba(212,137,106,.45)}
+.ey.lt::before{color:rgba(255,144,144,.45)}
 .bod{font-size:.95rem;color:var(--stone);line-height:1.82}
 
 /* tag pills */
 .pill{display:inline-block;font-size:.72rem;font-weight:500;padding:4px 12px;
-  border-radius:999px;background:var(--coral-pale);color:var(--coral)}
-.pill.muted{background:var(--mint);color:var(--teal)}
+  border-radius:999px;background:var(--mint);color:var(--link)}
+.pill.muted{background:#E8EFEF;color:var(--stone)}
 
 /* featured card */
 .feat-card{display:block;background:white;border:1px solid var(--sand);border-radius:14px;
   padding:38px 40px;transition:transform .2s,box-shadow .2s;margin-bottom:18px}
-.feat-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(46,74,58,.1)}
+.feat-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(4,31,30,.1)}
 .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .feat-title{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;
   line-height:1.12;color:var(--ink);margin-bottom:12px}
 .feat-sub{font-size:.95rem;color:var(--stone);line-height:1.7;max-width:48em;margin-bottom:24px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:24px 0;
   border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);margin-bottom:22px}
-.stat b{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--coral);display:block;line-height:1;margin-bottom:6px}
+.stat b{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--link);display:block;line-height:1;margin-bottom:6px}
 .stat span{font-size:.78rem;color:var(--muted);line-height:1.45}
 .feat-quote{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink);
   line-height:1.6;max-width:44em;margin-bottom:18px}
-.feat-read{display:inline-flex;align-items:center;gap:7px;color:var(--coral);
+.feat-read{display:inline-flex;align-items:center;gap:7px;color:var(--link);
   font-size:.82rem;font-weight:600;transition:gap .2s}
 .feat-card:hover .feat-read{gap:12px}
 
 /* coming soon grid */
 .sec-label{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--coral);margin-bottom:20px;display:flex;align-items:center;gap:7px}
+  color:var(--link);margin-bottom:20px;display:flex;align-items:center;gap:7px}
 .sec-label::before{content:'◆';font-size:.44rem;color:var(--coral-l)}
 .cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
 .cs-card{background:white;border:1px solid var(--sand);border-radius:12px;
   padding:26px 28px;display:block;transition:transform .2s,box-shadow .2s}
-.cs-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(46,74,58,.09)}
+.cs-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(4,31,30,.09)}
 .cs-card.soon{border-style:dashed;background:transparent}
 .cs-title{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--ink);
   margin:10px 0 8px;line-height:1.25}
 .cs-intro{font-size:.88rem;color:var(--stone);line-height:1.6;margin-bottom:16px}
 .cs-foot{display:flex;justify-content:space-between;align-items:center;
   font-size:.77rem;color:var(--muted);padding-top:12px;border-top:1px solid var(--sand)}
-.cs-go{color:var(--coral);font-weight:600}
+.cs-go{color:var(--link);font-weight:600}
 
 /* CTA band */
 .cta-band{background:var(--ink-d);padding:56px 8%}
@@ -114,11 +114,11 @@ button{cursor:pointer;font-family:var(--sans);border:none;background:none}
   justify-content:space-between;gap:24px;flex-wrap:wrap}
 .cta-inner h3{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.6rem);
   font-weight:700;color:white;margin-bottom:6px}
-.cta-inner p{font-size:.9rem;color:rgba(205,228,220,.65);line-height:1.6}
+.cta-inner p{font-size:.9rem;color:rgba(240,250,250,.65);line-height:1.6}
 .btn-coral{display:inline-flex;align-items:center;gap:7px;padding:13px 26px;
-  background:var(--coral);color:white;font-size:.84rem;font-weight:600;border-radius:28px;
-  transition:all .25s;box-shadow:0 3px 16px rgba(196,113,74,.32);white-space:nowrap}
-.btn-coral:hover{background:var(--coral-l);transform:translateY(-1px)}
+  background:var(--vivid);color:var(--ink);font-size:.84rem;font-weight:600;border-radius:28px;
+  transition:all .25s;box-shadow:0 3px 16px rgba(0,201,167,.32);white-space:nowrap}
+.btn-coral:hover{background:var(--teal-l);transform:translateY(-1px)}
 
 /* footer */
 footer{background:var(--ink-d);padding:56px 8% 32px}
@@ -126,7 +126,7 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 .ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
   padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:22px}
 .flogo{height:36px;opacity:.82;margin-bottom:10px;display:block}
-.fbtag{font-size:.79rem;color:rgba(154,191,184,.48);font-style:italic;
+.fbtag{font-size:.79rem;color:rgba(176,214,210,.48);font-style:italic;
   font-family:var(--serif);margin-bottom:14px;line-height:1.55}
 .fct{font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   color:var(--coral-l);margin-bottom:12px;opacity:.78}
@@ -148,7 +148,7 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;top:var(--nav);
-    background:rgba(10,24,16,.98);backdrop-filter:blur(12px);padding:24px 5%;gap:4px;z-index:198}
+    background:rgba(4,31,30,.98);backdrop-filter:blur(12px);padding:24px 5%;gap:4px;z-index:198}
   .nl{font-size:.88rem;padding:11px 13px;border-radius:7px}
   .npill{display:none}
   .burger{display:flex}
@@ -169,17 +169,17 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 /* article hero */
 .art-hero{background:var(--ink-d);padding:calc(var(--nav) + 56px) 8% 56px;position:relative;overflow:hidden}
 .art-hero-inner{position:relative;max-width:760px}
-.back-link{font-size:.82rem;font-weight:500;color:rgba(212,137,106,.7);
+.back-link{font-size:.82rem;font-weight:500;color:rgba(255,144,144,.7);
   display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;
   transition:color .2s}
 .back-link:hover{color:var(--coral-l)}
 .art-h1{font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:700;
   color:white;line-height:1.12;margin-bottom:16px}
-.art-standfirst{font-size:1.05rem;color:rgba(205,228,220,.7);line-height:1.72;
+.art-standfirst{font-size:1.05rem;color:rgba(240,250,250,.7);line-height:1.72;
   max-width:36em;margin-bottom:20px;font-weight:300}
 .art-byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-  font-size:.82rem;color:rgba(154,191,184,.55)}
-.art-byline b{color:rgba(205,228,220,.72);font-weight:500}
+  font-size:.82rem;color:rgba(176,214,210,.55)}
+.art-byline b{color:rgba(240,250,250,.72);font-weight:500}
 
 /* article body */
 .art-body{max-width:720px;margin:0 auto;padding:60px 8% 20px}
@@ -205,7 +205,7 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
   background:var(--ink-d);border-radius:12px;padding:28px 30px;margin:26px 0}
 .numbers-panel b{font-family:var(--serif);font-weight:700;font-size:1.5rem;
   color:var(--coral-l);display:block;line-height:1;margin-bottom:8px}
-.numbers-panel span{font-size:.8rem;color:rgba(205,228,220,.6);line-height:1.45}
+.numbers-panel span{font-size:.8rem;color:rgba(240,250,250,.6);line-height:1.45}
 
 /* sequenced plan */
 .plan{margin:24px 0}
@@ -216,10 +216,10 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 .plan-body{font-size:.9rem;color:var(--stone);line-height:1.65}
 
 /* callout */
-.callout{background:var(--coral-pale);border-left:3px solid var(--coral);
+.callout{background:var(--mint);border-left:3px solid var(--coral);
   border-radius:0 10px 10px 0;padding:20px 24px;margin:28px 0}
 .callout-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--coral);font-weight:700;margin-bottom:10px}
+  color:var(--link);font-weight:700;margin-bottom:10px}
 .callout p{font-size:.93rem;color:var(--ink);margin:0;line-height:1.65}
 
 /* pull quote */
@@ -227,7 +227,7 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 .pull-quote q{font-family:var(--serif);font-weight:500;font-size:1.32rem;
   line-height:1.42;color:var(--ink);quotes:none;display:block;font-style:italic}
 .pull-quote .attr{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--coral);font-weight:600;margin-top:16px}
+  color:var(--link);font-weight:600;margin-top:16px}
 
 .numbers-panel b{white-space:nowrap;font-size:clamp(1.15rem,2.4vw,1.4rem)}
 .art-body p.closing{font-family:var(--serif);font-style:italic;font-size:1.08rem;color:var(--ink);margin:4px 0 8px}
@@ -266,9 +266,9 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
     <a href="/case-studies.html" class="back-link">← Back to case studies</a>
     <div class="eyebrow">AI readiness case study</div>
     <h1 class="art-h1">Turning a recruitment bottleneck into a pipeline.</h1>
-    <p class="art-standfirst">How a specialist data centre delivery consultancy mapped its single biggest growth constraint and built an AI plan designed to pay for itself inside the first year.</p>
+    <p class="art-standfirst">How a specialist construction consultancy found its biggest growth constraint, recruitment, and built a five-step AI plan around fixing it.</p>
     <div class="art-byline">
-      <b>Data centre project management</b>
+      <b>Construction consultancy</b>
       <span>·</span><span>Client confidential</span>
       <span>·</span><span>Yea I Consulting</span>
     </div>
@@ -278,11 +278,10 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
 <main class="art-body">
 
   <h2>The client</h2>
-  <p>The firm delivers mission critical infrastructure for some of the largest names in the data centre world. It has 20 years behind it, a 100% repeat business rate, and a sector growing around 14% a year.</p>
-  <p>Demand was already there. What held growth back was the systems that find talent, win work, and keep senior people out of admin.</p>
+  <p>The work was there to be won, and what held the firm back was finding the people to deliver it, with business development resting on one person and senior people spending too much of their week on admin.</p>
 
   <h2>The challenge</h2>
-  <p>Recruitment was the number one pain point. The firm hires around 30 people a year through agencies, at contingent fees of 15 to 25% of first-year salary. For senior roles that runs to a six-figure annual cost.</p>
+  <p>Recruitment was the biggest headache, with around 30 people a year hired through agencies at contingent fees of 15 to 25% of first-year salary, which for senior roles adds up to a six-figure bill every year.</p>
   <p>Business development ran almost entirely through one person's network, and customer data lived across scattered spreadsheets with no CRM.</p>
 
   <h2>The starting point</h2>
@@ -297,27 +296,27 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
   </div>
 
   <div class="numbers-panel">
-    <div><b>£120k&ndash;£250k</b><span>Potential year-one saving on recruitment</span></div>
+    <div><b>£120k&ndash;£250k</b><span>Projected year-one saving on recruitment</span></div>
     <div><b>&lt;&nbsp;£30k</b><span>Annual cost of the recommended tool stack</span></div>
     <div><b>5</b><span>Sequenced initiatives, each with a named owner</span></div>
   </div>
 
   <h2>Five initiatives, in the right order</h2>
-  <p>We ran the AI Readiness Diagnostic, scored the business across six dimensions and pressure-tested the findings against the wider market. The work named five sequenced initiatives, each tied to a stated pain point and a clear return.</p>
+  <p>I ran the AI Readiness Diagnostic, scored the business across six dimensions and checked the findings against what's happening in the wider market. That produced five initiatives in a set order, each one tied to a problem the client had raised and a projected return.</p>
 
   <div class="plan">
     <div class="plan-item">
       <div class="plan-num">01</div>
       <div>
         <div class="plan-title">A recruitment pipeline</div>
-        <p class="plan-body">AI talent intelligence tools to replace agency fees with a proactive bench of pre-qualified contractors, ready to deploy. This answers the number one pain point and should pay for itself within months.</p>
+        <p class="plan-body">AI talent intelligence tools to build a bench of pre-qualified contractors the firm can call on, so fewer roles go through agencies. It comes first because it tackles the biggest pain point and carries the largest projected saving.</p>
       </div>
     </div>
     <div class="plan-item">
       <div class="plan-num">02</div>
       <div>
         <div class="plan-title">A proper CRM</div>
-        <p class="plan-body">HubSpot as the single source of truth for every client relationship, conversation and pipeline opportunity, with Breeze AI embedded for contact enrichment and follow-up.</p>
+        <p class="plan-body">HubSpot as the one place every client relationship and conversation lives, with its built-in AI, Breeze, filling in contact details and prompting follow-ups.</p>
       </div>
     </div>
     <div class="plan-item">
@@ -338,17 +337,20 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
       <div class="plan-num">05</div>
       <div>
         <div class="plan-title">An operational foundation</div>
-        <p class="plan-body">Microsoft Copilot properly rolled out across project management, commercial and operations, getting value from licences the firm most likely already pays for.</p>
+        <p class="plan-body">Microsoft Copilot properly rolled out across project management, commercial and operations, getting value from licences the firm already pays for.</p>
       </div>
     </div>
   </div>
 
   <div class="pull-quote">
     <q>"The report gave us the sequencing we were missing. It read like someone who actually understood our business, not a generic AI pitch."</q>
-    <div class="attr">Strategy Director, data centre delivery firm</div>
+    <div class="attr">Strategy Director, specialist construction firm</div>
   </div>
 
-  <p class="closing">Every figure in the plan came from a number the client gave us or a conservative industry benchmark. The result is a costed, sequenced roadmap the leadership team can start on Monday, prove, and then scale.</p>
+  <p class="closing">Every figure in the plan came from a number the client gave us or a conservative industry benchmark, so the projected savings are a range the leadership team can test against their own results as each step goes in.</p>
+  <h2>Where things are now</h2>
+  <p>Over the summer the project lost momentum, with people away on holiday and the work slipping down everyone's list, and it's proved quite difficult to keep the client's focus through that quiet spell.</p>
+  <p>The talent intelligence tool, the first of the five steps, is only now being put in place, so there are no results yet and every figure on this page is still a projection. I'll update it as the results come in.</p>
 
 </main>
 
@@ -356,7 +358,7 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
   <div class="cta-inner r">
     <div>
       <h3>What's the single biggest constraint in your business?</h3>
-      <p>Find out where AI would pay. Start with the free diagnostic. It takes around 15 minutes and the report comes back within one working day.</p>
+      <p>Start with the free diagnostic to find out where AI would pay. It takes around 15 minutes, your score appears on screen as soon as you finish, and an email with more detail follows.</p>
     </div>
     <a href="/diagnostic.html" class="btn-coral">Start the diagnostic →</a>
   </div>
@@ -373,11 +375,11 @@ footer{background:var(--ink-d);padding:56px 8% 32px}
       <div>
         <div class="fct">Services</div>
         <div class="flnks">
-          <a href="/#services" class="flnk">AI Readiness Audit</a>
-          <a href="/#services" class="flnk">Strategy & Roadmap</a>
-          <a href="/#services" class="flnk">Implementation</a>
-          <a href="/#services" class="flnk">Ongoing Advisory</a>
-          <a href="/#services" class="flnk">Workshops</a>
+          <a href="/#services" class="flnk">AI Readiness Diagnostic</a>
+          <a href="/#services" class="flnk">AI Snapshot Report</a>
+          <a href="/#services" class="flnk">Full AI Strategy Report</a>
+          <a href="/#services" class="flnk">Implementation &amp; Advisory</a>
+          <a href="/#services" class="flnk">AI Literacy Workshops</a>
         </div>
       </div>
       <div>
