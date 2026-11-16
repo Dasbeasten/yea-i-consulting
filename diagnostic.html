@@ -815,13 +815,14 @@ select.wf-select:focus{border-color:var(--terracotta-light);box-shadow:0 0 0 3px
 .wf-lines li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
 .wf-next{font-size:.95rem;color:var(--charcoal);line-height:1.65;margin:0 0 6px}
 </style>
+<link rel="stylesheet" href="/css/diagnostic.css">
 </head>
 <body data-page="diagnostic">
 
 
 <!-- HEADER -->
 <div class="header">
-  <a href="https://yea-i.com" class="brand" aria-label="Back to Yea I Consulting"><img src="/images/logo-white.png" alt="Yea I Consulting" width="73" height="40" style="height:40px;width:auto;display:block"></a>
+  <a href="https://yea-i.com" class="brand" aria-label="Back to Yea I Consulting"><img src="/images/logo-black.png" alt="Yea I Consulting" width="73" height="40" style="height:40px;width:auto;display:block"></a>
   <div class="header-meta">
     <div class="back-link-wrap">
       <a href="https://yea-i.com" class="header-back-link">Back to yea-i.com</a>
@@ -837,6 +838,8 @@ select.wf-select:focus{border-color:var(--terracotta-light);box-shadow:0 0 0 3px
 
   <!-- INTRO -->
   <div class="intro" id="introScreen">
+  <div class="intro-layout">
+  <div class="intro-copy">
     <div class="intro-presented">
       <div class="intro-logo-mark">
         <img src="/images/icon-colour.png" alt="Yea I logo" style="width:100%;height:100%;object-fit:contain;display:block;">
@@ -866,7 +869,18 @@ select.wf-select:focus{border-color:var(--terracotta-light);box-shadow:0 0 0 3px
       </div>
     </div>
 
-    <button class="btn-primary" onclick="start()">Start →</button>
+    <button class="btn-primary" onclick="start()">Start</button>
+  </div>
+  <aside class="intro-sections" aria-label="What we'll ask">
+    <div class="is-title">Four short sections</div>
+    <ol>
+      <li><span class="n" aria-hidden="true">1</span><div><b>Your business</b><span>A little context so any ideas fit your business.</span></div></li>
+      <li><span class="n" aria-hidden="true">2</span><div><b>The task</b><span>Where the time goes, and one task you'd happily never do again.</span></div></li>
+      <li><span class="n" aria-hidden="true">3</span><div><b>Your setup</b><span>What you already have to work with, and what you'd be ready to do.</span></div></li>
+      <li><span class="n" aria-hidden="true">4</span><div><b>Your details</b><span>Where to send your ideas.</span></div></li>
+    </ol>
+  </aside>
+  </div>
   </div>
 
   <!-- QUESTIONS -->
@@ -881,7 +895,8 @@ select.wf-select:focus{border-color:var(--terracotta-light);box-shadow:0 0 0 3px
   </div>
   <div id="tyResults" class="ty-results" style="display:none">
     <div class="ty-icon"><img src="/images/icon-colour.png" alt="Yea I" style="width:72px;height:72px;object-fit:contain;"></div>
-    <div class="wf-result">
+    <div class="ty-layout">
+<div class="wf-result">
       <p class="ty-eyebrow" style="text-align:center">Your diagnostic</p>
       <h2 class="ty-h2" id="tyHeadline">Thanks. Here's what you told us.</h2>
       <div class="wf-task" id="tyTask"></div>
@@ -897,7 +912,8 @@ select.wf-select:focus{border-color:var(--terracotta-light);box-shadow:0 0 0 3px
     <div class="ty-book">
       <h3>Rather talk sooner?</h3>
       <p>Book a free 20-minute call and we'll go through the task together. No pitch, no obligation.</p>
-      <div id="calBox" style="min-width:320px;height:640px;"></div>
+      <div id="calBox" style="min-width:280px;height:640px;"></div>
+    </div>
     </div>
     <div class="ty-credit"><span>Powered by <strong>Yea I</strong> &middot; AI Strategy Consulting</span></div>
   </div>
@@ -1085,13 +1101,13 @@ function optionsHtml(q, isMulti) {
     const handler = isMulti ? `tog('${q.id}',${i})` : `pick('${q.id}',${i})`;
     const prefix = isMulti ? 'm' : 'o';
     h += `
-      <div class="opt ${sel ? 'selected' : ''}" onclick="${handler}" id="${prefix}_${q.id}_${i}">
-        <div class="${isMulti ? 'opt-check' : 'opt-radio'}"></div>
-        <div class="opt-body">
-          <div class="opt-title">${o.title}</div>
-          ${o.desc ? `<div class="opt-desc">${o.desc}</div>` : ''}
-        </div>
-      </div>`;
+      <button type="button" class="opt ${sel ? 'selected' : ''}" aria-pressed="${sel ? 'true' : 'false'}" onclick="${handler}" id="${prefix}_${q.id}_${i}">
+        <span class="${isMulti ? 'opt-check' : 'opt-radio'}" aria-hidden="true"></span>
+        <span class="opt-body">
+          <span class="opt-title">${o.title}</span>
+          ${o.desc ? `<span class="opt-desc">${o.desc}</span>` : ''}
+        </span>
+      </button>`;
   });
   return h + `</div>`;
 }
@@ -1182,9 +1198,9 @@ function render() {
   nav.className = 'nav';
   nav.innerHTML = `
     <button class="btn-primary" onclick="next()">
-      ${q.type === 'contact' ? 'Send my answers →' : 'Continue →'}
+      ${q.type === 'contact' ? 'Send my answers' : 'Continue'}
     </button>
-    ${idx > 0 ? `<button class="btn-back" onclick="prev()">← Back</button>` : ''}`;
+    ${idx > 0 ? `<button class="btn-back" onclick="prev()">Back</button>` : ''}`;
   wrap.appendChild(nav);
 
   c.appendChild(wrap);
@@ -1196,17 +1212,17 @@ function render() {
 ───────────────────────────────────────── */
 function pick(id, i) {
   ans[id] = i;
-  document.querySelectorAll(`[id^="o_${id}_"]`).forEach((el, j) => el.classList.toggle('selected', j === i));
+  document.querySelectorAll(`[id^="o_${id}_"]`).forEach((el, j) => { el.classList.toggle('selected', j === i); el.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
 }
 
 function tog(id, i) {
   if (!multi[id]) multi[id] = new Set();
   const q = Qs.find(x => x.id === id);
   const el = document.getElementById(`m_${id}_${i}`);
-  if (multi[id].has(i)) { multi[id].delete(i); el.classList.remove('selected'); }
+  if (multi[id].has(i)) { multi[id].delete(i); el.classList.remove('selected'); el.setAttribute('aria-pressed', 'false'); }
   else {
     if (q && q.max && multi[id].size >= q.max) { nudge(`Pick up to ${q.max}. Untick one to choose another.`); return; }
-    multi[id].add(i); el.classList.add('selected');
+    multi[id].add(i); el.classList.add('selected'); el.setAttribute('aria-pressed', 'true');
   }
   if (q && q.max) refreshLimit(q);
 }
