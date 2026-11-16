@@ -1,0 +1,79 @@
+/* Yea I Consulting: article and case study template.
+   Linked after each article's own <style>, so these rules take over the shared
+   article blocks (.art-hero, .art-body, .callout, .art-cta, .related and the case
+   study blocks). Matches the signed-off article mock-up. */
+
+body::after { display: none !important; }
+body { background: #FAF7F2; color: #2A2A26; }
+
+/* header */
+.art-hero { position: relative; overflow: hidden; margin-top: 0; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 48px) clamp(36px, 5vw, 56px); background: #FAF7F2; }
+.art-hero::after { content: ""; position: absolute; top: -300px; right: -260px; width: 620px; height: 620px; border: 60px solid #C4714A; border-radius: 50%; opacity: .12; pointer-events: none; }
+.art-hero-topo { display: none; }
+.art-hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0; }
+.art-hero-inner > * { max-width: 860px; }
+.art-back, .back-link { display: inline-block; margin-bottom: 20px; padding: 8px 0; font-size: 14px; font-weight: 400; color: #2A2A26; text-decoration: underline; }
+.art-back:hover, .back-link:hover { color: #A85A36; }
+.art-back::before { content: none; }
+.art-kicker, .eyebrow { display: block; margin-bottom: 0; font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #A85A36; }
+.art-kicker::before, .eyebrow::before { content: none; }
+.art-kicker::after, .eyebrow::after { content: ""; display: block; width: 48px; height: 2px; margin-top: 12px; background: #179688; }
+.art-h1 { margin: 28px 0 24px; font-family: "Playfair Display", Lora, Georgia, serif; font-weight: 700; font-style: italic; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.06; letter-spacing: -.01em; color: #1D3025; }
+.art-standfirst { margin: 0 0 28px; max-width: 760px; font-size: clamp(19px, 2vw, 22px); font-weight: 400; line-height: 1.55; color: #2A2A26; }
+.art-byline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding-top: 20px; border-top: 1px solid #D7DDD8; font-size: 14px; color: #6B6B62; }
+.art-byline-name, .art-byline b { font-size: 14px; font-weight: 500; color: #1D3025; }
+.art-byline-meta, .art-byline span { font-size: 14px; color: #6B6B62; }
+.art-byline-dot { color: #B9BFB9; }
+
+/* body */
+.art-body { max-width: 1200px; margin: 0 auto; padding: 8px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 96px); box-sizing: border-box; }
+.art-body > * { max-width: 680px; }
+.art-body p, .art-body li { font-size: 18px; line-height: 1.75; color: #2A2A26; }
+.art-body p { margin: 0 0 20px; }
+.art-body h2 { margin: 48px 0 16px; font-family: "Playfair Display", Lora, Georgia, serif; font-size: clamp(26px, 3vw, 32px); font-weight: 700; line-height: 1.2; color: #1D3025; }
+.art-body h3 { margin: 32px 0 10px; font-family: "DM Sans", "Trebuchet MS", sans-serif; font-size: 20px; font-weight: 500; line-height: 1.4; color: #1D3025; }
+.art-body strong { font-weight: 500; color: #1D3025; }
+.art-body a { color: #2A6B5C; text-decoration: underline; text-underline-offset: 2px; }
+.art-body a:hover { color: #1D3025; }
+.art-body ul li, .art-body ol li { font-size: 18px; color: #2A2A26; }
+.art-body ul li::before { content: "\2022"; color: #C4714A; font-size: 18px; margin-top: 0; }
+.art-body ol li::before { color: #C4714A; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 700; }
+.art-body table { width: 100%; border-collapse: collapse; margin: 8px 0 28px; font-size: 15px; }
+.art-body th { background: #2E4A3A; color: #FAF7F2; font-weight: 500; text-align: left; padding: 12px 14px; }
+.art-body td { padding: 12px 14px; border-bottom: 1px solid #D7DDD8; vertical-align: top; }
+.art-body tr:nth-child(even) td { background: #EAF0EC; }
+
+/* callouts */
+.callout { margin: 16px 0 28px; padding: 28px 32px; border-radius: 0; border-left: 10px solid #179688; background: #EAF0EC; }
+.callout-label { margin-bottom: 8px; font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #3A3A35; }
+.callout p { font-size: 17px; line-height: 1.7; color: #2A2A26; }
+.callout.warn { border-left-color: #C4714A; background: #F7EDE6; }
+.callout.warn .callout-label { color: #A85A36; }
+
+/* pull quotes (case studies) */
+.pull-quote { margin: 32px 0; padding: 4px 0 4px 32px; border-left: 4px solid #C4714A; background: none; font-family: "Playfair Display", Lora, Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(20px, 2.2vw, 25px); line-height: 1.45; color: #1D3025; }
+.pull-quote .attr { display: block; margin-top: 12px; font-family: "DM Sans", "Trebuchet MS", sans-serif; font-style: normal; font-size: 14px; color: #6B6B62; }
+
+/* end-of-article call to action */
+.art-cta { margin: 48px 0 0; padding: clamp(28px, 4vw, 40px); border-radius: 4px; background: #1D3025; }
+.art-cta-label { margin-bottom: 12px; opacity: 1; font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #D4896A; }
+.art-cta h3 { margin: 0 0 12px; font-family: "Playfair Display", Lora, Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(26px, 3vw, 34px); line-height: 1.15; color: #FFFFFF; }
+.art-cta p { margin: 0 0 24px; font-size: 16px; line-height: 1.65; color: #E3E8E4; }
+.art-cta a { display: inline-flex; align-items: center; min-height: 48px; padding: 14px 26px; border-radius: 4px; background: #FAF7F2; color: #1D3025; font-size: 16px; font-weight: 500; text-decoration: none; transform: none; }
+.art-cta a:hover { background: #FFFFFF; color: #1D3025; transform: none; }
+.cta-band { background: #1D3025; padding: clamp(48px, 6vw, 72px) clamp(20px, 4vw, 48px); }
+.cta-inner { max-width: 1200px; }
+.cta-inner h3 { font-family: "Playfair Display", Lora, Georgia, serif; font-style: italic; font-size: clamp(26px, 3vw, 34px); color: #FFFFFF; }
+.cta-inner p { color: #E3E8E4; font-size: 16px; }
+
+/* related articles */
+.related { background: #F7EDE6; border-top: 0; padding: clamp(56px, 7vw, 80px) clamp(20px, 4vw, 48px); }
+.related-inner { max-width: 1200px; }
+.related-label { margin-bottom: 28px; font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #A85A36; }
+.related-label::before { content: none; }
+.related-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; background: none; }
+.rel-art { padding: 28px; background: #FAF7F2; gap: 12px; }
+.rel-art:hover { background: #FFFFFF; }
+.rel-tag { margin-bottom: 0; font-size: 11px; font-weight: 500; letter-spacing: .12em; color: #6B6B62; }
+.rel-title { margin-bottom: 0; font-family: "Playfair Display", Lora, Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.3; color: #1D3025; }
+.rel-read { margin-top: 8px; font-size: 14px; font-weight: 500; color: #A85A36; }
