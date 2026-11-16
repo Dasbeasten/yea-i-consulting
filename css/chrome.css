@@ -1,0 +1,33 @@
+/* Yea I Consulting: shared nav and footer.
+   Linked by every page. Rules are scoped to .site-nav-bar and .site-footer and use
+   plain colour values, so they never clash with a page's own styles or variables. */
+
+.site-nav-bar { position: relative; z-index: 50; background: #FAF7F2; border-bottom: 1px solid #D7DDD8; font-family: "DM Sans", "Trebuchet MS", "Gill Sans", sans-serif; }
+.site-nav-bar.home { background: transparent; border-bottom: 0; }
+.site-nav { max-width: 1200px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 48px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.site-nav-bar.home .site-nav { padding-top: 24px; padding-bottom: 24px; }
+.site-nav .logo { display: flex; align-items: center; min-height: 44px; }
+.site-nav .logo img { display: block; height: 52px; width: auto; max-width: none; object-fit: contain; }
+.site-nav .links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-size: 15px; line-height: 1.4; }
+.site-nav .links a { color: #2A2A26; text-decoration: none; padding: 12px 0; }
+.site-nav .links a:hover { color: #A85A36; text-decoration: underline; }
+.site-nav .links a[aria-current="page"] { color: #A85A36; }
+.site-nav .nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 22px; border-radius: 4px; background: #2E4A3A; color: #FAF7F2; font-size: 15px; font-weight: 500; line-height: 1.2; text-decoration: none; }
+.site-nav .nav-cta:hover { background: #1D3025; color: #FAF7F2; }
+.site-nav a:focus-visible, .site-footer a:focus-visible { outline: 3px solid #179688; outline-offset: 3px; }
+
+.site-footer { margin: 0; padding: 0; background: #1D3025; color: #E3E8E4; font-family: "DM Sans", "Trebuchet MS", "Gill Sans", sans-serif; font-size: 15px; line-height: 1.6; text-align: left; }
+.site-footer .inner { max-width: 1200px; margin: 0 auto; padding: 64px clamp(20px, 4vw, 48px) 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px; }
+.site-footer .cols { display: flex; flex-wrap: wrap; gap: 40px 64px; }
+.site-footer .brand { flex: 1.4 1 260px; display: flex; flex-direction: column; gap: 16px; }
+.site-footer .brand img { display: block; height: 48px; width: auto; max-width: none; align-self: flex-start; object-fit: contain; }
+.site-footer .brand p { margin: 0; color: #E3E8E4; }
+.site-footer nav { flex: 1 1 160px; display: flex; flex-direction: column; gap: 2px; }
+.site-footer .col-title { font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #D4896A; padding-bottom: 8px; }
+.site-footer a { color: #E3E8E4; text-decoration: none; padding: 8px 0; }
+.site-footer a:hover { color: #FFFFFF; text-decoration: underline; }
+.site-footer .brand a { color: #FAF7F2; text-decoration: underline; align-self: flex-start; }
+.site-footer .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; padding-top: 24px; border-top: 1px solid #355946; font-size: 13px; color: #B9C3BC; }
+.site-footer .bottom p { margin: 0; color: #B9C3BC; }
+.site-footer .bottom a { color: #B9C3BC; padding: 6px 0; text-decoration: underline; }
+.site-footer .legal { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: #B9C3BC; }
