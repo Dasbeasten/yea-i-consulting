@@ -268,7 +268,7 @@
       </div>
     </div>
     <div class="form-panel">
-      <div class="stack" style="gap:6px">
+      <div class="stack" style="gap:6px" id="fhead">
         <div class="form-title">Send a message</div>
         <p class="sub">Tell me a bit about your situation, and the more honest you are, the more useful I can be.</p>
       </div>
@@ -347,14 +347,14 @@
     btn.disabled = true;
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(cf)).toString() })
       .then(function (r) {
-        if (r.ok) { cf.style.display = 'none'; ok.style.display = 'flex'; if (window.yeaiTrack) window.yeaiTrack('contact_form_sent'); }
+        if (r.ok) { cf.style.display = 'none'; document.getElementById('fhead').style.display = 'none'; ok.style.display = 'flex'; if (window.yeaiTrack) window.yeaiTrack('contact_form_sent'); }
         else { btn.textContent = 'Try again'; btn.disabled = false; }
       })
       .catch(function () { btn.textContent = 'Try again'; btn.disabled = false; });
   });
   document.getElementById('fagain').addEventListener('click', function () {
     cf.reset(); btn.textContent = 'Send message'; btn.disabled = false;
-    ok.style.display = 'none'; cf.style.display = 'flex';
+    ok.style.display = 'none'; document.getElementById('fhead').style.display = 'flex'; cf.style.display = 'flex';
   });
 })();
 </script>
