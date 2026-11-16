@@ -1,0 +1,127 @@
+/* Yea I Consulting: "Where's the time going?" diagnostic, Route 1 look.
+   Linked after the page's own <style>. Changes the look only: the question
+   logic, scoring and emails live in the page script and are untouched. */
+
+body { background: #FAF7F2; color: #2A2A26; }
+body::after { display: none !important; }
+
+/* header: cream bar, black logo, thin teal progress */
+.header { height: auto; min-height: 76px; padding: 14px clamp(20px, 4vw, 48px); background: #FAF7F2; border-bottom: 1px solid #D7DDD8; flex-wrap: wrap; gap: 12px 24px; }
+.header .brand img { height: 40px !important; }
+.header-meta { gap: 12px 20px; flex-wrap: wrap; }
+.header-back-link { font-size: 14px; letter-spacing: 0; color: #2A2A26; text-decoration: underline; padding: 10px 0; }
+.header-back-link:hover { color: #A85A36; }
+.header-divider { background: #D7DDD8; }
+.header-tool-name, .prog-text { font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #6B6B62; }
+.prog-track { width: 160px; height: 4px; border-radius: 0; background: #D7DDD8; }
+.prog-bar { border-radius: 0; background: #179688; }
+
+.main { max-width: 1200px; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 48px) clamp(64px, 8vw, 96px); }
+
+/* buttons */
+.btn-primary { background: #2E4A3A; color: #FAF7F2; border-radius: 4px; padding: 16px 32px; min-height: 48px; font-size: 16px; font-weight: 500; letter-spacing: 0; box-shadow: none; }
+.btn-primary:hover { background: #1D3025; transform: none; box-shadow: none; }
+.btn-back { border: 0; border-radius: 0; padding: 12px 0; min-height: 44px; color: #2A2A26; font-size: 16px; text-decoration: underline; }
+.btn-back:hover { color: #A85A36; }
+.nav { justify-content: space-between; flex-direction: row-reverse; gap: 16px; margin-top: 0; padding-top: 24px; border-top: 1px solid #D7DDD8; }
+
+/* intro: copy left, four sections right */
+.intro-layout { display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: flex-start; }
+.intro-copy { flex: 1.3 1 480px; min-width: 0; }
+.intro-presented { display: none; }
+.intro-eyebrow { display: block; background: none; border: 0; padding: 0; margin-bottom: 28px; border-radius: 0; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #A85A36; }
+.intro-eyebrow::before { content: none; }
+.intro-eyebrow::after { content: ""; display: block; width: 48px; height: 2px; margin-top: 12px; background: #179688; }
+.intro-h1 { margin-bottom: 28px; font-weight: 700; font-style: italic; font-size: clamp(42px, 5.6vw, 72px); line-height: 1.05; letter-spacing: -.01em; color: #1D3025; }
+.intro-h1 em { color: #1D3025; }
+.intro-lead { max-width: 600px; margin-bottom: 36px; font-size: 19px; line-height: 1.65; color: #2A2A26; }
+.intro-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px; max-width: 640px; margin-bottom: 40px; }
+.intro-tile { display: block; background: none; border: 0; border-top: 2px solid #179688; border-radius: 0; padding: 16px 0 0; }
+.tile-icon { display: none; }
+.tile-copy strong { display: block; font-size: 17px; font-weight: 500; color: #1D3025; }
+.tile-copy span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.55; color: #2A2A26; }
+.intro-sections { flex: 1 1 340px; background: #EAF0EC; padding: clamp(28px, 3vw, 40px); box-sizing: border-box; }
+.intro-sections .is-title { padding-bottom: 12px; font-size: 11px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: #3A3A35; }
+.intro-sections ol { list-style: none; margin: 0; padding: 0; }
+.intro-sections li { display: flex; gap: 18px; padding: 18px 0; border-top: 1px solid #D7DDD8; }
+.intro-sections li:last-child { padding-bottom: 0; }
+.intro-sections .n { flex: 0 0 28px; font-family: "Playfair Display", Lora, Georgia, serif; font-weight: 700; font-style: italic; font-size: 26px; line-height: 1.1; color: #C4714A; }
+.intro-sections b { display: block; font-weight: 500; color: #1D3025; }
+.intro-sections span { display: block; font-size: 15px; line-height: 1.55; color: #2A2A26; }
+
+/* section banner shown at the start of each section */
+.section-banner { display: block; margin-bottom: 32px; padding: 0 0 0 20px; background: none !important; border: 0 !important; border-left: 4px solid #C4714A !important; border-radius: 0; }
+.sb-dot { display: none; }
+.sb-label { margin-bottom: 4px; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #A85A36 !important; }
+.sb-desc { font-size: 16px; line-height: 1.55; color: #2A2A26; }
+
+/* question: question and answers left, "why we're asking" right */
+.q-wrap { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(260px, 1fr); column-gap: 72px; align-items: start; background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; margin-bottom: 0; }
+.q-wrap > * { grid-column: 1; }
+.q-wrap > .q-why { grid-column: 2; grid-row: 1 / span 12; }
+.q-top { margin-bottom: 20px; }
+.q-num { order: 2; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #6B6B62; }
+.q-dim-tag { order: 1; padding: 0; border-radius: 0; background: none !important; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #A85A36 !important; }
+.q-text { margin-bottom: 24px; font-weight: 700; font-size: clamp(30px, 3.8vw, 44px); line-height: 1.15; color: #1D3025; }
+.q-why { margin: 0; padding: 28px 28px 28px 24px; background: #EAF0EC; border-left: 10px solid #179688; border-radius: 0; }
+.q-why-label { margin-bottom: 8px; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #3A3A35; }
+.q-why-text { font-size: 15px; font-weight: 400; line-height: 1.65; color: #2A2A26; }
+.wf-echo { margin-bottom: 20px; padding: 14px 18px; background: #F7EDE6; border: 0; border-radius: 0; font-size: 15px; color: #2A2A26; }
+.wf-echo b { font-weight: 500; color: #1D3025; }
+.multi-hint { margin-bottom: 16px; font-style: normal; font-size: 16px; color: #6B6B62; }
+.multi-hint::before { content: none; }
+.wf-nudge { color: #A85A36; font-size: 15px; }
+
+/* answer options as cards */
+.options { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.opt { width: 100%; min-height: 88px; padding: 16px 18px; gap: 14px; text-align: left; font: inherit; color: inherit; background: #FFFFFF; border: 2px solid #D7DDD8; border-radius: 4px; box-shadow: none; }
+.opt:hover { background: #FFFFFF; border-color: #C4714A; transform: none; }
+.opt:focus-visible { outline: 3px solid #179688; outline-offset: 2px; }
+.opt.selected { background: #F7EDE6; border-color: #C4714A; box-shadow: none; }
+.opt-radio, .opt-check { border-color: #B9BFB9; }
+.opt-check { border-radius: 2px; }
+.opt.selected .opt-radio, .opt.selected .opt-check { background: #C4714A; border-color: #C4714A; }
+.opt-title { margin-bottom: 4px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #1D3025; }
+.opt-desc { font-size: 14px; line-height: 1.5; color: #4A4A44; }
+
+/* text fields */
+.field-label { margin-bottom: 8px; font-size: 14px; font-weight: 500; letter-spacing: 0; text-transform: none; color: #2A2A26; }
+.wf-optional { color: #6B6B62; }
+textarea, input[type="text"], input[type="email"], input[type="url"], select.wf-select { font-size: 16px !important; border-radius: 4px !important; background: #FFFFFF !important; border: 1px solid #B9BFB9 !important; }
+textarea:focus, input:focus, select.wf-select:focus { border-color: #179688 !important; box-shadow: 0 0 0 2px #179688 !important; }
+
+/* result */
+.thankyou { text-align: left; padding: 0; }
+.ty-waiting { text-align: center; padding: 48px 0; }
+.ty-icon { display: none; }
+.ty-layout { display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: flex-start; }
+.wf-result { flex: 1.2 1 460px; max-width: none; margin: 0; }
+.ty-eyebrow { text-align: left !important; margin-bottom: 0; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #A85A36; }
+.ty-eyebrow::after { content: ""; display: block; width: 48px; height: 2px; margin-top: 12px; background: #179688; }
+.wf-result .ty-h2, .ty-h2 { margin: 24px 0 24px; text-align: left; font-weight: 700; font-style: italic; font-size: clamp(36px, 4.8vw, 58px); line-height: 1.08; color: #1D3025; }
+.ty-waiting .ty-h2 { text-align: center; font-size: 28px; }
+.wf-task { margin: 0 0 24px; padding: 4px 0 4px 24px; background: none; border: 0; border-left: 4px solid #C4714A; border-radius: 0; font-style: italic; font-size: 22px; line-height: 1.45; color: #1D3025; }
+.wf-size { margin: 0 0 40px; padding: 20px 24px; background: #1D3025; color: #FAF7F2; font-size: 17px; line-height: 1.6; }
+.wf-label { margin: 0 0 16px; font-size: 11px; font-weight: 500; letter-spacing: .17em; color: #A85A36; }
+.wf-label::after { content: ""; display: block; width: 48px; height: 2px; margin-top: 12px; background: #179688; }
+.wf-lines { gap: 0; margin-bottom: 40px; counter-reset: brk; }
+.wf-lines li { counter-increment: brk; display: flex; gap: 20px; padding: 20px 0 0; margin-top: 20px; border-top: 1px solid #D7DDD8; font-size: 17px; line-height: 1.65; }
+.wf-lines li:first-child { margin-top: 0; }
+.wf-lines li:before { content: counter(brk); position: static; flex: 0 0 28px; width: auto; height: auto; border-radius: 0; background: none; font-family: "Playfair Display", Lora, Georgia, serif; font-weight: 700; font-style: italic; font-size: 26px; line-height: 1.2; color: #C4714A; }
+.wf-next { font-size: 17px; line-height: 1.65; }
+.ty-book { flex: 1 1 380px; max-width: none; margin: 0; padding: clamp(28px, 3vw, 40px); background: #EAF0EC; border: 0; border-radius: 0; }
+.ty-book h3 { margin-bottom: 10px; font-family: "Playfair Display", Lora, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.2; color: #1D3025; }
+.ty-book > p { font-size: 15px; color: #2A2A26; }
+.ty-credit { margin-top: 48px; padding-top: 20px; border-top: 1px solid #D7DDD8; }
+.ty-credit span { font-size: 13px; color: #6B6B62; }
+
+@media (max-width: 760px) {
+  .q-wrap { display: block; }
+  .q-wrap > .q-why { margin-bottom: 24px; }
+  .prog-track { display: block; width: 100%; }
+  .header-meta { width: 100%; }
+}
+
+/* option parts are spans inside the button */
+.opt > span, .opt-title, .opt-desc { display: block; }
+.opt-radio, .opt-check { display: block; }
