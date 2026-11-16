@@ -53,18 +53,18 @@
     wrap.setAttribute("aria-label", "Cookie choices");
     wrap.style.cssText =
       "position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:640px;" +
-      "margin:0 auto;background:#0f2e2b;color:#f4f1ea;border-radius:14px;" +
+      "margin:0 auto;background:#1D3025;color:#FAF7F2;border-radius:4px;" +
       "padding:20px 22px;box-shadow:0 10px 40px rgba(0,0,0,.35);" +
       "font-family:inherit;font-size:.92rem;line-height:1.55;";
     wrap.innerHTML =
       '<p style="margin:0 0 14px">We use Microsoft Clarity to see how the site is used, ' +
       'which helps us make it better. It only runs if you agree. ' +
-      'See our <a href="/cookies.html" style="color:#f4f1ea;text-decoration:underline">cookie policy</a>.</p>' +
+      'See our <a href="/cookies.html" style="color:#FAF7F2;text-decoration:underline">cookie policy</a>.</p>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
-      '<button id="ck-accept" style="flex:1;min-width:130px;cursor:pointer;border:0;border-radius:8px;' +
-      'padding:11px 16px;font:inherit;font-weight:600;background:#f4f1ea;color:#0f2e2b">Accept</button>' +
+      '<button id="ck-accept" style="flex:1;min-width:130px;cursor:pointer;border:0;border-radius:4px;' +
+      'padding:11px 16px;font:inherit;font-weight:600;background:#FAF7F2;color:#1D3025">Accept</button>' +
       '<button id="ck-reject" style="flex:1;min-width:130px;cursor:pointer;border:1px solid rgba(244,241,234,.5);' +
-      'border-radius:8px;padding:11px 16px;font:inherit;font-weight:600;background:transparent;color:#f4f1ea">Reject</button>' +
+      'border-radius:4px;padding:11px 16px;font:inherit;font-weight:600;background:transparent;color:#FAF7F2">Reject</button>' +
       '</div>';
     document.body.appendChild(wrap);
     document.getElementById("ck-accept").addEventListener("click", accept);
