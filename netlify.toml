@@ -109,6 +109,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/insights/how-to-measure-ai-roi_1"
+  to = "/insights/how-to-measure-ai-roi.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/how-to-measure-ai-roi_1.html"
+  to = "/insights/how-to-measure-ai-roi.html"
+  status = 301
+  force = true
+
 # Case studies
 [[redirects]]
   from = "/case-studies"
